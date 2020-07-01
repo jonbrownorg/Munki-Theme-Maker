@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FCFFA1F324ACE232004615AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFA1F224ACE232004615AC /* AppDelegate.swift */; };
+		FCFFA1F524ACE232004615AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFA1F424ACE232004615AC /* ViewController.swift */; };
+		FCFFA1F724ACE233004615AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCFFA1F624ACE233004615AC /* Assets.xcassets */; };
+		FCFFA1FA24ACE233004615AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCFFA1F824ACE233004615AC /* Main.storyboard */; };
+		FCFFA20624ACE234004615AC /* Munki_Theme_MakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFA20524ACE234004615AC /* Munki_Theme_MakerTests.swift */; };
+		FCFFA21124ACE234004615AC /* Munki_Theme_MakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFA21024ACE234004615AC /* Munki_Theme_MakerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FCFFA20224ACE234004615AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCFFA1E724ACE232004615AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCFFA1EE24ACE232004615AC;
+			remoteInfo = "Munki Theme Maker";
+		};
+		FCFFA20D24ACE234004615AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCFFA1E724ACE232004615AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCFFA1EE24ACE232004615AC;
+			remoteInfo = "Munki Theme Maker";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FCFFA1EF24ACE232004615AC /* Munki Theme Maker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Munki Theme Maker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCFFA1F224ACE232004615AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FCFFA1F424ACE232004615AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FCFFA1F624ACE233004615AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FCFFA1F924ACE233004615AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FCFFA1FB24ACE233004615AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCFFA1FC24ACE233004615AC /* Munki_Theme_Maker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Munki_Theme_Maker.entitlements; sourceTree = "<group>"; };
+		FCFFA20124ACE234004615AC /* Munki Theme MakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Munki Theme MakerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCFFA20524ACE234004615AC /* Munki_Theme_MakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Munki_Theme_MakerTests.swift; sourceTree = "<group>"; };
+		FCFFA20724ACE234004615AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCFFA20C24ACE234004615AC /* Munki Theme MakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Munki Theme MakerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCFFA21024ACE234004615AC /* Munki_Theme_MakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Munki_Theme_MakerUITests.swift; sourceTree = "<group>"; };
+		FCFFA21224ACE234004615AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FCFFA1EC24ACE232004615AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCFFA1FE24ACE234004615AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCFFA20924ACE234004615AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FCFFA1E624ACE232004615AC = {
+			isa = PBXGroup;
+			children = (
+				FCFFA1F124ACE232004615AC /* Munki Theme Maker */,
+				FCFFA20424ACE234004615AC /* Munki Theme MakerTests */,
+				FCFFA20F24ACE234004615AC /* Munki Theme MakerUITests */,
+				FCFFA1F024ACE232004615AC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FCFFA1F024ACE232004615AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FCFFA1EF24ACE232004615AC /* Munki Theme Maker.app */,
+				FCFFA20124ACE234004615AC /* Munki Theme MakerTests.xctest */,
+				FCFFA20C24ACE234004615AC /* Munki Theme MakerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FCFFA1F124ACE232004615AC /* Munki Theme Maker */ = {
+			isa = PBXGroup;
+			children = (
+				FCFFA1F224ACE232004615AC /* AppDelegate.swift */,
+				FCFFA1F424ACE232004615AC /* ViewController.swift */,
+				FCFFA1F624ACE233004615AC /* Assets.xcassets */,
+				FCFFA1F824ACE233004615AC /* Main.storyboard */,
+				FCFFA1FB24ACE233004615AC /* Info.plist */,
+				FCFFA1FC24ACE233004615AC /* Munki_Theme_Maker.entitlements */,
+			);
+			path = "Munki Theme Maker";
+			sourceTree = "<group>";
+		};
+		FCFFA20424ACE234004615AC /* Munki Theme MakerTests */ = {
+			isa = PBXGroup;
+			children = (
+				FCFFA20524ACE234004615AC /* Munki_Theme_MakerTests.swift */,
+				FCFFA20724ACE234004615AC /* Info.plist */,
+			);
+			path = "Munki Theme MakerTests";
+			sourceTree = "<group>";
+		};
+		FCFFA20F24ACE234004615AC /* Munki Theme MakerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FCFFA21024ACE234004615AC /* Munki_Theme_MakerUITests.swift */,
+				FCFFA21224ACE234004615AC /* Info.plist */,
+			);
+			path = "Munki Theme MakerUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FCFFA1EE24ACE232004615AC /* Munki Theme Maker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCFFA21524ACE234004615AC /* Build configuration list for PBXNativeTarget "Munki Theme Maker" */;
+			buildPhases = (
+				FCFFA1EB24ACE232004615AC /* Sources */,
+				FCFFA1EC24ACE232004615AC /* Frameworks */,
+				FCFFA1ED24ACE232004615AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Munki Theme Maker";
+			productName = "Munki Theme Maker";
+			productReference = FCFFA1EF24ACE232004615AC /* Munki Theme Maker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FCFFA20024ACE234004615AC /* Munki Theme MakerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCFFA21824ACE234004615AC /* Build configuration list for PBXNativeTarget "Munki Theme MakerTests" */;
+			buildPhases = (
+				FCFFA1FD24ACE234004615AC /* Sources */,
+				FCFFA1FE24ACE234004615AC /* Frameworks */,
+				FCFFA1FF24ACE234004615AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCFFA20324ACE234004615AC /* PBXTargetDependency */,
+			);
+			name = "Munki Theme MakerTests";
+			productName = "Munki Theme MakerTests";
+			productReference = FCFFA20124ACE234004615AC /* Munki Theme MakerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FCFFA20B24ACE234004615AC /* Munki Theme MakerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCFFA21B24ACE234004615AC /* Build configuration list for PBXNativeTarget "Munki Theme MakerUITests" */;
+			buildPhases = (
+				FCFFA20824ACE234004615AC /* Sources */,
+				FCFFA20924ACE234004615AC /* Frameworks */,
+				FCFFA20A24ACE234004615AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCFFA20E24ACE234004615AC /* PBXTargetDependency */,
+			);
+			name = "Munki Theme MakerUITests";
+			productName = "Munki Theme MakerUITests";
+			productReference = FCFFA20C24ACE234004615AC /* Munki Theme MakerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FCFFA1E724ACE232004615AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Grove Technologies";
+				TargetAttributes = {
+					FCFFA1EE24ACE232004615AC = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					FCFFA20024ACE234004615AC = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = FCFFA1EE24ACE232004615AC;
+					};
+					FCFFA20B24ACE234004615AC = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = FCFFA1EE24ACE232004615AC;
+					};
+				};
+			};
+			buildConfigurationList = FCFFA1EA24ACE232004615AC /* Build configuration list for PBXProject "Munki Theme Maker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FCFFA1E624ACE232004615AC;
+			productRefGroup = FCFFA1F024ACE232004615AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FCFFA1EE24ACE232004615AC /* Munki Theme Maker */,
+				FCFFA20024ACE234004615AC /* Munki Theme MakerTests */,
+				FCFFA20B24ACE234004615AC /* Munki Theme MakerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FCFFA1ED24ACE232004615AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCFFA1F724ACE233004615AC /* Assets.xcassets in Resources */,
+				FCFFA1FA24ACE233004615AC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCFFA1FF24ACE234004615AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCFFA20A24ACE234004615AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FCFFA1EB24ACE232004615AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCFFA1F524ACE232004615AC /* ViewController.swift in Sources */,
+				FCFFA1F324ACE232004615AC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCFFA1FD24ACE234004615AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCFFA20624ACE234004615AC /* Munki_Theme_MakerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCFFA20824ACE234004615AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCFFA21124ACE234004615AC /* Munki_Theme_MakerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCFFA20324ACE234004615AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCFFA1EE24ACE232004615AC /* Munki Theme Maker */;
+			targetProxy = FCFFA20224ACE234004615AC /* PBXContainerItemProxy */;
+		};
+		FCFFA20E24ACE234004615AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCFFA1EE24ACE232004615AC /* Munki Theme Maker */;
+			targetProxy = FCFFA20D24ACE234004615AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FCFFA1F824ACE233004615AC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCFFA1F924ACE233004615AC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FCFFA21324ACE234004615AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FCFFA21424ACE234004615AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		FCFFA21624ACE234004615AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Munki Theme Maker/Munki_Theme_Maker.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Munki Theme Maker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "grovetech.co.Munki-Theme-Maker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FCFFA21724ACE234004615AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Munki Theme Maker/Munki_Theme_Maker.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Munki Theme Maker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "grovetech.co.Munki-Theme-Maker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		FCFFA21924ACE234004615AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Munki Theme MakerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "grovetech.co.Munki-Theme-MakerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Munki Theme Maker.app/Contents/MacOS/Munki Theme Maker";
+			};
+			name = Debug;
+		};
+		FCFFA21A24ACE234004615AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Munki Theme MakerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "grovetech.co.Munki-Theme-MakerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Munki Theme Maker.app/Contents/MacOS/Munki Theme Maker";
+			};
+			name = Release;
+		};
+		FCFFA21C24ACE234004615AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Munki Theme MakerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "grovetech.co.Munki-Theme-MakerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Munki Theme Maker";
+			};
+			name = Debug;
+		};
+		FCFFA21D24ACE234004615AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Munki Theme MakerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "grovetech.co.Munki-Theme-MakerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Munki Theme Maker";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FCFFA1EA24ACE232004615AC /* Build configuration list for PBXProject "Munki Theme Maker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCFFA21324ACE234004615AC /* Debug */,
+				FCFFA21424ACE234004615AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCFFA21524ACE234004615AC /* Build configuration list for PBXNativeTarget "Munki Theme Maker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCFFA21624ACE234004615AC /* Debug */,
+				FCFFA21724ACE234004615AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCFFA21824ACE234004615AC /* Build configuration list for PBXNativeTarget "Munki Theme MakerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCFFA21924ACE234004615AC /* Debug */,
+				FCFFA21A24ACE234004615AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCFFA21B24ACE234004615AC /* Build configuration list for PBXNativeTarget "Munki Theme MakerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCFFA21C24ACE234004615AC /* Debug */,
+				FCFFA21D24ACE234004615AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FCFFA1E724ACE232004615AC /* Project object */;
+}
