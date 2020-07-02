@@ -13,6 +13,8 @@
 		FCFFA1FA24ACE233004615AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCFFA1F824ACE233004615AC /* Main.storyboard */; };
 		FCFFA20624ACE234004615AC /* Munki_Theme_MakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFA20524ACE234004615AC /* Munki_Theme_MakerTests.swift */; };
 		FCFFA21124ACE234004615AC /* Munki_Theme_MakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFA21024ACE234004615AC /* Munki_Theme_MakerUITests.swift */; };
+		FCFFA21F24AD15AF004615AC /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFA21E24AD15AF004615AC /* Variables.swift */; };
+		FCFFA22124AD25AA004615AC /* rb.sh in Resources */ = {isa = PBXBuildFile; fileRef = FCFFA22024AD25AA004615AC /* rb.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		FCFFA20C24ACE234004615AC /* Munki Theme MakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Munki Theme MakerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFFA21024ACE234004615AC /* Munki_Theme_MakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Munki_Theme_MakerUITests.swift; sourceTree = "<group>"; };
 		FCFFA21224ACE234004615AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCFFA21E24AD15AF004615AC /* Variables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
+		FCFFA22024AD25AA004615AC /* rb.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = rb.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +103,9 @@
 				FCFFA1F224ACE232004615AC /* AppDelegate.swift */,
 				FCFFA1F424ACE232004615AC /* ViewController.swift */,
 				FCFFA1F624ACE233004615AC /* Assets.xcassets */,
+				FCFFA22024AD25AA004615AC /* rb.sh */,
 				FCFFA1F824ACE233004615AC /* Main.storyboard */,
+				FCFFA21E24AD15AF004615AC /* Variables.swift */,
 				FCFFA1FB24ACE233004615AC /* Info.plist */,
 				FCFFA1FC24ACE233004615AC /* Munki_Theme_Maker.entitlements */,
 			);
@@ -228,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFFA22124AD25AA004615AC /* rb.sh in Resources */,
 				FCFFA1F724ACE233004615AC /* Assets.xcassets in Resources */,
 				FCFFA1FA24ACE233004615AC /* Main.storyboard in Resources */,
 			);
@@ -254,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFFA21F24AD15AF004615AC /* Variables.swift in Sources */,
 				FCFFA1F524ACE232004615AC /* ViewController.swift in Sources */,
 				FCFFA1F324ACE232004615AC /* AppDelegate.swift in Sources */,
 			);
