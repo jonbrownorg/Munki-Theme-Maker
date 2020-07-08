@@ -160,9 +160,13 @@ class Variables: NSObject {
            let source5 = "https://github.com/munki/munki"
            let arg5 = "v5.0.0"
            let target5 = workingDirectory.stringValue + "/munki"
+        
+           let source501 = "https://github.com/munki/munki"
+           let arg501 = "v5.0.1"
+           let target501 = workingDirectory.stringValue + "/munki"
             
            let argrb = "v3.2.1"
-           let argmt = "v1.0"
+           let argmt = "v1.1"
            
            let sourcerebrand = "https://github.com/ox-it/munki-rebrand"
            let targetrebrand = workingDirectory.stringValue + "/munki-rebrand"
@@ -172,6 +176,8 @@ class Variables: NSObject {
 
          if munkiVersion.titleOfSelectedItem == "5.0.0" {
             try! Process().clone(repo: source5, path: target5, arg: arg5)
+         } else if munkiVersion.titleOfSelectedItem == "5.0.1" {
+            try! Process().clone(repo: source501, path: target501, arg: arg501)
          } else {
            try! Process().clone(repo: source414, path: target414, arg: arg414)
          }
