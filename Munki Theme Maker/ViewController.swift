@@ -28,8 +28,14 @@ class ViewController: NSViewController {
     @IBOutlet weak var sideColor: NSTextField!
     @IBOutlet weak var featColor: NSTextField!
     @IBOutlet var loadingView: NSView!
-    
-    
+    @IBOutlet weak var bgColorWell: NSColorWell!
+    @IBOutlet weak var sideColorWell: NSColorWell!
+    @IBOutlet weak var featColorWell: NSColorWell!
+    @IBOutlet weak var hexBG: NSTextField!
+    @IBOutlet weak var hexSide: NSTextField!
+    @IBOutlet weak var sideBar: NSTextField!
+    @IBOutlet weak var hexFeat: NSTextField!
+    @IBOutlet weak var featuredArea: NSTextField!
     
     @IBOutlet var acSwitch: NSSegmentedControl!
     @IBAction func SwitchButton(_ sender: AnyObject) {
@@ -102,43 +108,56 @@ class ViewController: NSViewController {
         } else {
             iconFile.stringValue = ""
         }
-        if UserDefaults.standard.string(forKey: "bgColor") != nil {
+        
+        
+        if ((UserDefaults.standard.string(forKey: "bgColor") != nil) || (UserDefaults.standard.string(forKey: "bgColorSW") != nil)) {
             
             let hexbgcolor = UserDefaults.standard.string(forKey: "bgColor")!
-                
+            hexBG.stringValue = hexbgcolor
+
+            let swiftBGColor = UserDefaults.standard.color(forKey: "bgColorSW")
+            bgColor.backgroundColor = swiftBGColor
             bgColor.drawsBackground = true
-            bgColor.backgroundColor = NSColor.gray
-            bgColor.textColor = NSColor.white
-            bgColor.stringValue = hexbgcolor
+            bgColorWell.color = swiftBGColor!
+            sideBar.backgroundColor = swiftBGColor
             
+            featColor.drawsBackground = true
+            featColor.backgroundColor = swiftBGColor
+
         } else {
-            
+            bgColor.stringValue = ""
         }
         
-        if UserDefaults.standard.string(forKey: "sideColor") != nil {
+        if ((UserDefaults.standard.string(forKey: "sideColor") != nil) || (UserDefaults.standard.string(forKey: "sideColorSW") != nil)) {
             
             let hexbgcolor = UserDefaults.standard.string(forKey: "sideColor")!
-                
-            sideColor.drawsBackground = true
-            sideColor.backgroundColor = NSColor.gray
-            sideColor.textColor = NSColor.white
-            sideColor.stringValue = hexbgcolor
+            hexSide.stringValue = hexbgcolor
             
+            if (hexbgcolor == "#FFFFFF") {
+                sideColor.textColor = NSColor.black
+            } else {
+                sideColor.textColor = NSColor.white
+            }
+            
+            let swiftSDColor = UserDefaults.standard.color(forKey: "sideColorSW")
+            sideColor.textColor = swiftSDColor
+            sideColorWell.color = swiftSDColor!
+
         } else {
-            
+            sideColor.stringValue = ""
         }
         
-        if UserDefaults.standard.string(forKey: "featColor") != nil {
-            
+        if ((UserDefaults.standard.string(forKey: "featColorSW") != nil) || (UserDefaults.standard.string(forKey: "featColor") != nil)) {
+               
+            let swiftFTColor = UserDefaults.standard.color(forKey: "featColorSW")
+            featColorWell.color = swiftFTColor!
             let hexbgcolor = UserDefaults.standard.string(forKey: "featColor")!
-                
-            featColor.drawsBackground = true
-            featColor.backgroundColor = NSColor.gray
-            featColor.textColor = NSColor.white
-            featColor.stringValue = hexbgcolor
+            hexFeat.stringValue = hexbgcolor
+            featuredArea.backgroundColor = swiftFTColor
             
+                        
         } else {
-            
+            featColor.stringValue = ""
         }
         
         super.viewDidLoad()

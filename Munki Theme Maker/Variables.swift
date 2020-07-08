@@ -30,6 +30,11 @@ class Variables: NSObject {
     @IBOutlet weak var firstView: NSView!
     @IBOutlet weak var loadingView: NSView!
     @IBOutlet weak var mainView: NSView!
+    @IBOutlet weak var hexBG: NSTextField!
+    @IBOutlet weak var hexSide: NSTextField!
+    @IBOutlet weak var sideBar: NSTextField!
+    @IBOutlet weak var featuredArea: NSTextField!
+    @IBOutlet weak var hexFeat: NSTextField!
     
     @IBAction func changeBGColor(_ sender : NSColorWell)
     {
@@ -37,32 +42,45 @@ class Variables: NSObject {
        // do something with the color
         BG.drawsBackground = true
         BG.backgroundColor = colorbg
-        BG.textColor = NSColor.white
-        BG.stringValue = colorbg.hexString
+        hexBG.stringValue = colorbg.hexString
+        sideBar.backgroundColor = colorbg
+        BGFeat.backgroundColor = colorbg
         
         UserDefaults.standard.set(colorbg.hexString, forKey: "bgColor") //STR
+        UserDefaults.standard.set(colorbg, forKey: "bgColorSW")
+        
+        if (colorbg.hexString == "#FFFFFF") {
+            BG.textColor = NSColor.black
+        } else {
+            BG.textColor = NSColor.white
+        }
+        
     }
 
     @IBAction func changeSBColor(_ sender : NSColorWell)
     {
        let colorside = sender.color
        // do something with the color
-        BGSide.drawsBackground = true
-        BGSide.backgroundColor = colorside
-        BGSide.textColor = NSColor.white
-        BGSide.stringValue = colorside.hexString
+        BGSide.textColor = colorside
+        hexSide.stringValue = colorside.hexString
         UserDefaults.standard.set(colorside.hexString, forKey: "sideColor") //STR
+        UserDefaults.standard.set(colorside, forKey: "sideColorSW")
+        
+        
+        
+        
     }
     
     @IBAction func changeFeatColor(_ sender : NSColorWell)
     {
        let colorfeat = sender.color
        // do something with the color
-        BGFeat.drawsBackground = true
-        BGFeat.backgroundColor = colorfeat
-        BGFeat.textColor = NSColor.white
-        BGFeat.stringValue = colorfeat.hexString
+        featuredArea.drawsBackground = true
+        featuredArea.backgroundColor = colorfeat
+        hexFeat.stringValue = colorfeat.hexString
         UserDefaults.standard.set(colorfeat.hexString, forKey: "featColor") //STR
+        UserDefaults.standard.set(colorfeat, forKey: "featColorSW")
+        
     }
     
    @IBAction func getWorking(_ sender: AnyObject!) {
@@ -295,4 +313,26 @@ extension NSColor {
         return hexString as String
     }
 
+}
+
+extension UserDefaults {
+    
+    func set(_ color: NSColor, forKey: String) {
+        if let data = try? NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false) {
+            self.set(data, forKey: forKey)
+        }
+    }
+    
+    func color(forKey: String) -> NSColor? {
+        guard
+            let storedData = self.data(forKey: forKey),
+            let unarchivedData = try? NSKeyedUnarchiver.unarchivedObject(ofClass: NSColor.self, from: storedData),
+            let color = unarchivedData as NSColor?
+        else {
+            return nil
+        }
+        
+        return color
+    }
+    
 }
