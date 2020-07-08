@@ -25,7 +25,9 @@ Pick the colors of the theme in the next tab (Colors) and then finally set the i
 
 It will download and clone into your source folder Munki, Munki Rebrand and the base Munki Theme with all injectable files. Injection happens, and then Munki builds. 
 
-The App has backwards compatibility for Munki version 4.1.4 as of writing this through to version 5.0.0. We plan to relase new baseline themes and modifications for each dot iteration of the Munki core release. 
+The App has backwards compatibility for Munki version 4.1.4 as of writing this through to version 5.0.1. We plan to relase new baseline themes and modifications for each dot iteration of the Munki core release. 
+
+The log file for the App is located in your Downloads folder. Its recommended that you empty the Output folder after each run. 
 
 ## Troubleshooting/Notes
 
@@ -35,6 +37,3 @@ The App has backwards compatibility for Munki version 4.1.4 as of writing this t
 
 ## To-do
 * Better handling of user passwords and passing that through to the various scripts natively. 
-* Adding a progress indicator so the user knows where in the process the builder is
-* Adding functionality to pipe the output of the scripts to a window for easy visualization
-* Adding functionality to pipe the output to a console log file for ease of troubleshooting

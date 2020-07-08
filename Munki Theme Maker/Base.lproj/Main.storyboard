@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -756,6 +757,7 @@
                         <outlet property="iconFile" destination="J0r-kM-oOm" id="8AV-IA-wKT"/>
                         <outlet property="iconImage" destination="nKg-Oz-TAj" id="kE8-0K-znE"/>
                         <outlet property="iconView" destination="vl7-0w-UGd" id="MVu-Rd-WrV"/>
+                        <outlet property="loadingView" destination="H0r-Xb-0Wj" id="rOF-vq-9ST"/>
                         <outlet property="outputPath" destination="kaD-on-QTq" id="xes-pc-4Lh"/>
                         <outlet property="sideColor" destination="xuo-Rl-Lg1" id="MPP-hH-IrS"/>
                         <outlet property="signCert" destination="XYN-MH-wNg" id="Nd3-FT-L5g"/>
@@ -773,11 +775,16 @@
                         <outlet property="appName" destination="iab-GI-pGH" id="FHE-IC-08U"/>
                         <outlet property="bgColor" destination="RWV-2u-ckT" id="giw-Xe-L31"/>
                         <outlet property="certName" destination="XYN-MH-wNg" id="Vig-b6-wNt"/>
+                        <outlet property="firstView" destination="ae6-cV-pOl" id="XAi-6c-OUg"/>
                         <outlet property="iconFile" destination="J0r-kM-oOm" id="Ega-2d-TjY"/>
                         <outlet property="iconImage" destination="nKg-Oz-TAj" id="Pu5-B7-0hZ"/>
+                        <outlet property="loadingView" destination="H0r-Xb-0Wj" id="nx3-D0-lBO"/>
+                        <outlet property="mainView" destination="s0g-NY-at6" id="55V-j8-0gj"/>
                         <outlet property="munkiVersion" destination="LTh-Zz-f3h" id="n4p-62-EQ5"/>
                         <outlet property="myViewController" destination="XfG-lQ-9wD" id="S7y-TL-h0G"/>
                         <outlet property="outputDirectory" destination="kaD-on-QTq" id="djd-Va-9Sh"/>
+                        <outlet property="spinner" destination="rec-zj-y4h" id="uYy-BD-7kD"/>
+                        <outlet property="theResTxt" destination="vUB-UD-STZ" id="Hcn-Tm-Vpp"/>
                         <outlet property="workingDirectory" destination="1Md-ot-jRz" id="WhU-vm-kpx"/>
                     </connections>
                 </customObject>
@@ -863,6 +870,52 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
+                    </subviews>
+                </customView>
+                <customView id="H0r-Xb-0Wj">
+                    <rect key="frame" x="0.0" y="0.0" width="325" height="350"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="rec-zj-y4h">
+                            <rect key="frame" x="146" y="275" width="32" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </progressIndicator>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3an-dp-EaA">
+                            <rect key="frame" x="112" y="251" width="100" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Running Scripts" id="URd-GR-4tE">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icg-9i-3YJ">
+                            <rect key="frame" x="0.0" y="0.0" width="325" height="225"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="EF9-8m-04o">
+                                <rect key="frame" x="0.0" y="0.0" width="325" height="225"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="bar" spellingCorrection="YES" smartInsertDelete="YES" id="vUB-UD-STZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="225"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <size key="minSize" width="325" height="225"/>
+                                        <size key="maxSize" width="325" height="10000000"/>
+                                        <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    </textView>
+                                </subviews>
+                            </clipView>
+                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="9hY-n2-HRF">
+                                <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </scroller>
+                            <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="bWJ-2V-khu">
+                                <rect key="frame" x="309" y="0.0" width="16" height="225"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </scroller>
+                        </scrollView>
                     </subviews>
                 </customView>
                 <customView id="vl7-0w-UGd">
@@ -1024,12 +1077,18 @@
                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LTh-Zz-f3h">
                             <rect key="frame" x="20" y="306" width="288" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <popUpButtonCell key="cell" type="push" title="4.1.4" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="gti-wF-ulw" id="gUa-sV-g4v">
+                            <popUpButtonCell key="cell" type="push" title="4.0.0" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="gti-wF-ulw" id="gUa-sV-g4v">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                                 <menu key="menu" id="zrj-rs-U3p">
                                     <items>
-                                        <menuItem title="4.1.4" state="on" id="gti-wF-ulw"/>
+                                        <menuItem title="4.0.0" state="on" id="gti-wF-ulw"/>
+                                        <menuItem title="4.0.1" id="N8R-IU-ljZ"/>
+                                        <menuItem title="4.1.0" id="YKR-NJ-0oc"/>
+                                        <menuItem title="4.1.1" id="zhd-40-FbU"/>
+                                        <menuItem title="4.1.2" id="Tna-BR-4aF"/>
+                                        <menuItem title="4.1.3" id="fjC-so-OAZ"/>
+                                        <menuItem title="4.1.4" id="T2T-3x-IO8"/>
                                         <menuItem title="5.0.0" id="8fB-SD-BLC"/>
                                         <menuItem title="5.0.1" id="nHA-kw-5U8"/>
                                     </items>

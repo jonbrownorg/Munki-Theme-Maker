@@ -25,6 +25,11 @@ class Variables: NSObject {
     @IBOutlet weak var BGFeat: NSTextField!
     @IBOutlet weak var BGSide: NSTextField!
     
+    @IBOutlet var theResTxt: NSTextView!
+    @IBOutlet weak var spinner: NSProgressIndicator!
+    @IBOutlet weak var firstView: NSView!
+    @IBOutlet weak var loadingView: NSView!
+    @IBOutlet weak var mainView: NSView!
     
     @IBAction func changeBGColor(_ sender : NSColorWell)
     {
@@ -138,6 +143,10 @@ class Variables: NSObject {
     
     @IBAction func submit(_ sender: NSButton) {
         
+        firstView.removeFromSuperview()
+        mainView.addSubview(loadingView)
+        spinner.startAnimation(self)
+        
         let fileManager = FileManager.default
         
         do {
@@ -153,20 +162,21 @@ class Variables: NSObject {
         UserDefaults.standard.set(appCert.stringValue, forKey: "appCert") //STR
         UserDefaults.standard.set(certName.stringValue, forKey: "signCert") //STR
         
-           let source414 = "https://github.com/munki/munki"
+           let source = "https://github.com/munki/munki"
+           let target = workingDirectory.stringValue + "/munki"
+        
+           let arg40 = "v4.0.0"
+           let arg401 = "v4.0.1"
+           let arg410 = "v4.1.0"
+           let arg411 = "v4.1.1"
+           let arg412 = "v4.1.2"
+           let arg413 = "v4.1.3"
            let arg414 = "v4.1.4"
-           let target414 = workingDirectory.stringValue + "/munki"
-        
-           let source5 = "https://github.com/munki/munki"
            let arg5 = "v5.0.0"
-           let target5 = workingDirectory.stringValue + "/munki"
-        
-           let source501 = "https://github.com/munki/munki"
            let arg501 = "v5.0.1"
-           let target501 = workingDirectory.stringValue + "/munki"
             
            let argrb = "v3.2.1"
-           let argmt = "v1.1"
+           let argmt = "v1.2"
            
            let sourcerebrand = "https://github.com/ox-it/munki-rebrand"
            let targetrebrand = workingDirectory.stringValue + "/munki-rebrand"
@@ -175,23 +185,86 @@ class Variables: NSObject {
            let targettheme = workingDirectory.stringValue + "/munki-theme"
 
          if munkiVersion.titleOfSelectedItem == "5.0.0" {
-            try! Process().clone(repo: source5, path: target5, arg: arg5)
+            try! Process().clone(repo: source, path: target, arg: arg5)
          } else if munkiVersion.titleOfSelectedItem == "5.0.1" {
-            try! Process().clone(repo: source501, path: target501, arg: arg501)
+            try! Process().clone(repo: source, path: target, arg: arg501)
+         } else if munkiVersion.titleOfSelectedItem == "4.0.0" {
+            try! Process().clone(repo: source, path: target, arg: arg40)
+         } else if munkiVersion.titleOfSelectedItem == "4.0.1" {
+            try! Process().clone(repo: source, path: target, arg: arg401)
+         } else if munkiVersion.titleOfSelectedItem == "4.1.0" {
+            try! Process().clone(repo: source, path: target, arg: arg410)
+         } else if munkiVersion.titleOfSelectedItem == "4.1.1" {
+            try! Process().clone(repo: source, path: target, arg: arg411)
+         } else if munkiVersion.titleOfSelectedItem == "4.1.2" {
+            try! Process().clone(repo: source, path: target, arg: arg412)
+         } else if munkiVersion.titleOfSelectedItem == "4.1.3" {
+            try! Process().clone(repo: source, path: target, arg: arg413)
          } else {
-           try! Process().clone(repo: source414, path: target414, arg: arg414)
+           try! Process().clone(repo: source, path: target, arg: arg414)
          }
         
            try! Process().clone(repo: sourcerebrand, path: targetrebrand, arg: argrb)
            try! Process().clone(repo: sourcetheme, path: targettheme, arg: argmt)
         
-        let path = "/bin/bash"
+        let task = Process()
+        task.launchPath = "/bin/bash"
+        
+        //let path = "/bin/bash"
         let shellpath = Bundle.main.path(forResource: "rb.sh",ofType:nil)
         let shellpathstr = String(shellpath!)
-        let arguments = [shellpathstr, appName.stringValue, workingDirectory.stringValue, certName.stringValue, appCert.stringValue, iconFile.stringValue, munkiVersion.titleOfSelectedItem!, outputDirectory.stringValue, BG.stringValue, BGSide.stringValue, BGFeat.stringValue]
+        
+        task.arguments = [shellpathstr, appName.stringValue, workingDirectory.stringValue, certName.stringValue, appCert.stringValue, iconFile.stringValue, munkiVersion.titleOfSelectedItem!, outputDirectory.stringValue, BG.stringValue, BGSide.stringValue, BGFeat.stringValue]
+        
         sender.isEnabled = false
-        let task = Process.launchedProcess(launchPath: path, arguments: arguments)
+       
+        let pipe = Pipe()
+        task.standardOutput = pipe
+        let outHandle = pipe.fileHandleForReading
+
+        outHandle.readabilityHandler = { pipe in
+            if let line = String(data: pipe.availableData, encoding: String.Encoding.utf8) {
+                // Update your view with the new text here
+               
+                DispatchQueue.main.async {
+                    self.theResTxt.textStorage?.append(NSAttributedString(string: line))
+                    self.theResTxt.scrollToEndOfDocument(nil)
+                    
+                    let file = "Munki-Theme-Maker-Log.txt" //this is the file. we will write to and read from it
+
+                    let text = self.theResTxt.string  //the text we'll write
+
+                    // we'll write the file in the user's documents directory
+                    if let dir = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first {
+
+                        let fileURL = dir.appendingPathComponent(file)
+
+                        //writing
+                        do {
+                            try text.write(to: fileURL, atomically: false, encoding: .utf8)
+                        }
+                        catch {/* error handling here */}
+                    }
+                    
+                    
+               }
+                
+                print("New ouput: \(line)")
+            } else {
+                print("Error decoding data: \(pipe.availableData)")
+            }
+        }
+        
+        task.launch()
+        
+        //let task = Process.launchedProcess(launchPath: path, arguments: arguments)
+        
         task.waitUntilExit()
+
+        spinner.stopAnimation(self)
+        loadingView.removeFromSuperview()
+        mainView.addSubview(firstView)
+        
         sender.isEnabled = true
     }
 

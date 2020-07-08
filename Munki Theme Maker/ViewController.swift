@@ -27,6 +27,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var bgColor: NSTextField!
     @IBOutlet weak var sideColor: NSTextField!
     @IBOutlet weak var featColor: NSTextField!
+    @IBOutlet var loadingView: NSView!
+    
     
     
     @IBOutlet var acSwitch: NSSegmentedControl!

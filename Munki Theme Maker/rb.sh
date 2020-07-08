@@ -73,7 +73,7 @@ echo $sbcolor
 echo $featcolor
 
 ## Dont Edit
-sleep 60
+sleep 0
 
 mid='/munki/code/apps/Managed Software Center/Managed Software Center'
 fullpath='/munki/code/apps/Managed Software Center/Managed Software Center/Resources/WebResources'
@@ -151,3 +151,5 @@ echo $finalpath
 mv $finalpath $output
 
 open $output
+
+exit 0
