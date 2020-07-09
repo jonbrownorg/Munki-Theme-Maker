@@ -36,6 +36,11 @@ class Variables: NSObject {
     @IBOutlet weak var featuredArea: NSTextField!
     @IBOutlet weak var hexFeat: NSTextField!
     
+    @IBOutlet weak var bgcolor: NSTextField!
+    @IBOutlet weak var cat: NSTextField!
+    @IBOutlet weak var feat: NSTextField!
+    
+    
     @IBAction func changeBGColor(_ sender : NSColorWell)
     {
        let colorbg = sender.color
@@ -232,7 +237,7 @@ class Variables: NSObject {
         let shellpath = Bundle.main.path(forResource: "rb.sh",ofType:nil)
         let shellpathstr = String(shellpath!)
         
-        task.arguments = [shellpathstr, appName.stringValue, workingDirectory.stringValue, certName.stringValue, appCert.stringValue, iconFile.stringValue, munkiVersion.titleOfSelectedItem!, outputDirectory.stringValue, BG.stringValue, BGSide.stringValue, BGFeat.stringValue]
+        task.arguments = [shellpathstr, appName.stringValue, workingDirectory.stringValue, certName.stringValue, appCert.stringValue, iconFile.stringValue, munkiVersion.titleOfSelectedItem!, outputDirectory.stringValue, bgcolor.stringValue, cat.stringValue, feat.stringValue]
         
         sender.isEnabled = false
        

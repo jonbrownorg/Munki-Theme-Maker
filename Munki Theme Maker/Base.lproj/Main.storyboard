@@ -786,7 +786,10 @@
                         <outlet property="appCert" destination="2ov-KH-WNo" id="glq-N1-0Zn"/>
                         <outlet property="appName" destination="iab-GI-pGH" id="FHE-IC-08U"/>
                         <outlet property="bgColor" destination="RWV-2u-ckT" id="giw-Xe-L31"/>
+                        <outlet property="bgcolor" destination="gyF-bt-yzm" id="ydy-h9-bzu"/>
+                        <outlet property="cat" destination="83b-gG-vWz" id="y6S-Lg-8ql"/>
                         <outlet property="certName" destination="XYN-MH-wNg" id="Vig-b6-wNt"/>
+                        <outlet property="feat" destination="P8Z-kC-iAH" id="fW1-n9-qGn"/>
                         <outlet property="featuredArea" destination="oHl-0Y-LND" id="535-jS-9IU"/>
                         <outlet property="firstView" destination="ae6-cV-pOl" id="XAi-6c-OUg"/>
                         <outlet property="hexBG" destination="gyF-bt-yzm" id="ZdN-IO-i55"/>
