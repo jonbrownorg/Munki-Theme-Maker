@@ -194,7 +194,7 @@ class Variables: NSObject {
            let arg501 = "v5.0.1"
             
            let argrb = "v3.2.1"
-           let argmt = "v1.2"
+           let argmt = "v1.3"
            
            let sourcerebrand = "https://github.com/ox-it/munki-rebrand"
            let targetrebrand = workingDirectory.stringValue + "/munki-rebrand"

@@ -12,6 +12,7 @@ import Foundation
 class ViewController: NSViewController {
 
     var currntSeg : Int = 1
+    @IBOutlet weak var imageBG: NSView!
     @IBOutlet var variables: Variables?
     @IBOutlet weak var containerView: NSView!
     @IBOutlet var variableView: NSView!
@@ -24,6 +25,9 @@ class ViewController: NSViewController {
     @IBOutlet weak var appCert: NSTextField!
     @IBOutlet weak var iconFile: NSTextField!
     @IBOutlet weak var iconImage: NSImageView!
+    @IBOutlet weak var catImageView: NSImageView!
+    @IBOutlet weak var featuredImageView: NSImageView!
+    @IBOutlet weak var bgImageView: NSImageView!
     @IBOutlet weak var bgColor: NSTextField!
     @IBOutlet weak var sideColor: NSTextField!
     @IBOutlet weak var featColor: NSTextField!
@@ -72,6 +76,33 @@ class ViewController: NSViewController {
         containerView.addSubview(variableView)
         colorView.removeFromSuperview()
         
+        catImageView.wantsLayer = true
+        catImageView.layer?.cornerRadius = 8.0
+        catImageView.layer?.masksToBounds = true
+        sideBar.wantsLayer = true
+        sideBar.layer?.cornerRadius = 8.0
+        
+        featuredImageView.wantsLayer = true
+        featuredImageView.layer?.cornerRadius = 8.0
+        featuredImageView.layer?.masksToBounds = true
+        featuredArea.wantsLayer = true
+        featuredArea.layer?.cornerRadius = 8.0
+        featColor.wantsLayer = true
+        featColor.layer?.cornerRadius = 8.0
+        
+        bgImageView.wantsLayer = true
+        bgImageView.layer?.cornerRadius = 8.0
+        bgImageView.layer?.masksToBounds = true
+        bgColor.wantsLayer = true
+        bgColor.layer?.cornerRadius = 8.0
+        
+        imageBG.wantsLayer = true
+        imageBG.layer?.borderWidth = 3.0
+        imageBG.layer?.borderColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        imageBG.layer?.cornerRadius = 20.0
+        imageBG.layer?.masksToBounds = true
+       
+
         if UserDefaults.standard.string(forKey: "WorkingDirectory") != nil {
             workingDirectory.stringValue = UserDefaults.standard.string(forKey: "WorkingDirectory")!
             
@@ -110,7 +141,7 @@ class ViewController: NSViewController {
         }
         
         
-        if ((UserDefaults.standard.string(forKey: "bgColor") != nil) && (UserDefaults.standard.string(forKey: "bgColorSW") != nil)) {
+        if ((UserDefaults.standard.string(forKey: "bgColor") != nil) || (UserDefaults.standard.string(forKey: "bgColorSW") != nil)) {
             
             let hexbgcolor = UserDefaults.standard.string(forKey: "bgColor")!
             let swiftBGColor = UserDefaults.standard.color(forKey: "bgColorSW")
@@ -134,7 +165,7 @@ class ViewController: NSViewController {
             bgColor.drawsBackground = true
         }
         
-        if ((UserDefaults.standard.string(forKey: "sideColor") != nil) && (UserDefaults.standard.string(forKey: "sideColorSW") != nil)) {
+        if ((UserDefaults.standard.string(forKey: "sideColor") != nil) || (UserDefaults.standard.string(forKey: "sideColorSW") != nil)) {
             
             let hexbgcolor = UserDefaults.standard.string(forKey: "sideColor")!
             let swiftSDColor = UserDefaults.standard.color(forKey: "sideColorSW")
@@ -149,7 +180,7 @@ class ViewController: NSViewController {
             hexSide.stringValue = ""
         }
         
-        if ((UserDefaults.standard.string(forKey: "featColorSW") != nil) && (UserDefaults.standard.string(forKey: "featColor") != nil)) {
+        if ((UserDefaults.standard.string(forKey: "featColorSW") != nil) || (UserDefaults.standard.string(forKey: "featColor") != nil)) {
                
             let swiftFTColor = UserDefaults.standard.color(forKey: "featColorSW")
             let hexbgcolor = UserDefaults.standard.string(forKey: "featColor")!

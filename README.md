@@ -21,13 +21,19 @@ Munki Theme Maker runs scripts and actions into Munki as its being built and com
 
 Upon launching the app you must set all variables. If any variables or customized items are missing it will fail to run. The most important items are the Source Folder (Where Munki is downloaded and compiled), the Output folder where you will get 2 copies of Munki the unbranded and the branded and themed versions. The App Name (the new name of the Managed Software Update App that you wish it to be). The signing certificate authority (for use when signing the final package - Developer ID Installer) and the App certificate authority (for used to sign the binaries of Munki - Developer ID Application). 
 
+<img alt="Blog Photo" src="https://grovetech.co/assets/img/blog/2020/20200625Ma/mtm-var.jpg">
+
 Pick the colors of the theme in the next tab (Colors) and then finally set the icon that you will use for the final touch. Once all set hit "Generate" and let the Munki Theme Builder do its thing. 
+
+<img alt="Blog Photo" src="https://grovetech.co/assets/img/blog/2020/20200625Ma/mtm-hero.jpg">
 
 It will download and clone into your source folder Munki, Munki Rebrand and the base Munki Theme with all injectable files. Injection happens, and then Munki builds. 
 
+<img alt="Blog Photo" src="https://grovetech.co/assets/img/blog/2020/20200625Ma/mtm-icon.jpg">
+
 The App has backwards compatibility for Munki version 4.1.4 as of writing this through to version 5.0.1. We plan to relase new baseline themes and modifications for each dot iteration of the Munki core release. 
 
-The log file for the App is located in your Downloads folder. Its recommended that you empty the Output folder after each run. 
+The log file for the App is located in your Downloads folder. Its recommended that you empty the Output folder after each run. For more check out our [blog post here.](https://grovetech.co/blog/munki-theme-creator-for-munki/)
 
 ## Troubleshooting/Notes
 
