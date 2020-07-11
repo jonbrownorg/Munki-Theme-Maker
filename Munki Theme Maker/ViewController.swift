@@ -40,6 +40,11 @@ class ViewController: NSViewController {
     @IBOutlet weak var sideBar: NSTextField!
     @IBOutlet weak var hexFeat: NSTextField!
     @IBOutlet weak var featuredArea: NSTextField!
+    @IBOutlet weak var textColor: NSColorWell!
+    @IBOutlet weak var appText: NSTextField!
+    @IBOutlet weak var hexTXT: NSTextField!
+    @IBOutlet weak var featuredText: NSTextField!
+    @IBOutlet weak var catText: NSTextField!
     
     @IBOutlet var acSwitch: NSSegmentedControl!
     @IBAction func SwitchButton(_ sender: AnyObject) {
@@ -173,11 +178,13 @@ class ViewController: NSViewController {
             hexSide.stringValue = hexbgcolor
             sideColor.textColor = swiftSDColor
             sideColorWell.color = swiftSDColor!
+            featuredText.textColor = swiftSDColor
 
         } else {
             sideColor.stringValue = ""
             sideColorWell.color = NSColor.white
             hexSide.stringValue = ""
+            featuredText.textColor = NSColor.white
         }
         
         if ((UserDefaults.standard.string(forKey: "featColorSW") != nil) || (UserDefaults.standard.string(forKey: "featColor") != nil)) {
@@ -195,6 +202,26 @@ class ViewController: NSViewController {
             featColorWell.color = NSColor.white
             hexFeat.stringValue = ""
         }
+        
+        
+        if ((UserDefaults.standard.string(forKey: "textColorSW") != nil) || (UserDefaults.standard.string(forKey: "textColor") != nil)) {
+               
+            let swiftTXTColor = UserDefaults.standard.color(forKey: "textColorSW")
+            let hextxtcolor = UserDefaults.standard.string(forKey: "textColor")!
+            
+            textColor.color = swiftTXTColor!
+            hexTXT.stringValue = hextxtcolor
+            appName.textColor = swiftTXTColor
+            catText.textColor = swiftTXTColor
+            
+                        
+        } else {
+            textColor.color = NSColor.white
+            hexTXT.stringValue = ""
+            appName.textColor = NSColor.white
+            catText.textColor = NSColor.white
+        }
+        
         
         super.viewDidLoad()
 

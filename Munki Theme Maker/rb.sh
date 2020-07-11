@@ -60,6 +60,7 @@ output="$7" #output directory
 bgcolor="$8" #BG Color
 sbcolor="$9" #SB Color
 featcolor="${10}" #FT Color
+txtcolor="${11}" #TXT Color
 
 echo $appname
 echo $workingdir
@@ -71,6 +72,7 @@ echo $output
 echo $bgcolor
 echo $sbcolor
 echo $featcolor
+echo $txtcolor
 
 ## Dont Edit
 sleep 0
@@ -104,6 +106,7 @@ echo CHMOD file at "$workingdir$fullpath/base.css"
 cd  "$workingdir/munki-theme/$munkiversion/Dark-Theme/"
 sed -i'.bak' "s/#c8d6e5/$bgcolor/g" custom.css
 sed -i'.bak' "s/#718093/$sbcolor/g" custom.css
+sed -i'.bak' "s/#eeeeee/$txtcolor/g" custom.css
 sed -i'.bak' "s/background-color: white !important;/background-color: $featcolor !important;/g" custom.css
 cd  "$workingdir$fullpath"
 echo "$(echo "@import 'custom.css';" | cat - base.css)" > base.css

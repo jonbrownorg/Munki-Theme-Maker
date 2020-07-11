@@ -749,20 +749,24 @@
                         <outlet property="WorkingDirectory" destination="1Md-ot-jRz" id="6dV-IK-JFZ"/>
                         <outlet property="acSwitch" destination="1tp-am-DXw" id="TeN-6C-mzt"/>
                         <outlet property="appCert" destination="2ov-KH-WNo" id="QVM-zR-ch2"/>
-                        <outlet property="appName" destination="iab-GI-pGH" id="Ajl-fG-eeG"/>
+                        <outlet property="appName" destination="iab-GI-pGH" id="vvv-Ez-SYq"/>
+                        <outlet property="appText" destination="PHA-HU-8Zp" id="dTh-9K-ayb"/>
                         <outlet property="bgColor" destination="iee-Fg-bCV" id="ctK-Jc-mjZ"/>
                         <outlet property="bgColorWell" destination="RWV-2u-ckT" id="aZo-16-b3d"/>
                         <outlet property="bgImageView" destination="h3m-eh-yGk" id="J2X-wH-054"/>
                         <outlet property="catImageView" destination="dKf-0l-SBv" id="9eN-Am-aKV"/>
+                        <outlet property="catText" destination="IzU-Fb-m7m" id="v9v-gA-pFZ"/>
                         <outlet property="colorView" destination="Pns-ox-4FW" id="BhN-4w-h80"/>
                         <outlet property="containerView" destination="s0g-NY-at6" id="lOz-qD-0yC"/>
                         <outlet property="featColor" destination="8ei-4k-GIL" id="n5c-PY-Mek"/>
                         <outlet property="featColorWell" destination="sh5-xm-KiD" id="3Jo-RV-JUc"/>
                         <outlet property="featuredArea" destination="oHl-0Y-LND" id="kK6-Ah-LiR"/>
                         <outlet property="featuredImageView" destination="fyh-Np-uvX" id="F9h-Gr-tBa"/>
+                        <outlet property="featuredText" destination="pXm-YE-VsY" id="wYw-zq-7Ig"/>
                         <outlet property="hexBG" destination="gyF-bt-yzm" id="Q7O-WU-bmN"/>
                         <outlet property="hexFeat" destination="P8Z-kC-iAH" id="2xV-C4-9Lk"/>
                         <outlet property="hexSide" destination="83b-gG-vWz" id="zFS-gM-ny3"/>
+                        <outlet property="hexTXT" destination="heZ-Bz-sDb" id="t98-Cc-u8O"/>
                         <outlet property="iconFile" destination="J0r-kM-oOm" id="8AV-IA-wKT"/>
                         <outlet property="iconImage" destination="nKg-Oz-TAj" id="kE8-0K-znE"/>
                         <outlet property="iconView" destination="vl7-0w-UGd" id="MVu-Rd-WrV"/>
@@ -773,6 +777,7 @@
                         <outlet property="sideColor" destination="xuo-Rl-Lg1" id="MPP-hH-IrS"/>
                         <outlet property="sideColorWell" destination="RYG-ck-FPS" id="ATb-CF-zCF"/>
                         <outlet property="signCert" destination="XYN-MH-wNg" id="Nd3-FT-L5g"/>
+                        <outlet property="textColor" destination="H7n-gl-kV8" id="3Zy-4Q-IED"/>
                         <outlet property="variableView" destination="ae6-cV-pOl" id="fcJ-GY-rSk"/>
                         <outlet property="variables" destination="h2W-yR-xgs" id="uK5-gt-0QP"/>
                     </connections>
@@ -784,17 +789,21 @@
                         <outlet property="BGFeat" destination="8ei-4k-GIL" id="iw6-6p-ivm"/>
                         <outlet property="BGSide" destination="xuo-Rl-Lg1" id="Xgb-IQ-Usj"/>
                         <outlet property="appCert" destination="2ov-KH-WNo" id="glq-N1-0Zn"/>
-                        <outlet property="appName" destination="iab-GI-pGH" id="FHE-IC-08U"/>
+                        <outlet property="appName" destination="iab-GI-pGH" id="Zdm-hJ-mGX"/>
+                        <outlet property="appText" destination="PHA-HU-8Zp" id="2Rd-z2-DFX"/>
                         <outlet property="bgColor" destination="RWV-2u-ckT" id="giw-Xe-L31"/>
                         <outlet property="bgcolor" destination="gyF-bt-yzm" id="ydy-h9-bzu"/>
                         <outlet property="cat" destination="83b-gG-vWz" id="y6S-Lg-8ql"/>
+                        <outlet property="catTxt" destination="IzU-Fb-m7m" id="3TZ-Hf-hVU"/>
                         <outlet property="certName" destination="XYN-MH-wNg" id="Vig-b6-wNt"/>
                         <outlet property="feat" destination="P8Z-kC-iAH" id="fW1-n9-qGn"/>
+                        <outlet property="featText" destination="pXm-YE-VsY" id="mlA-Us-tLY"/>
                         <outlet property="featuredArea" destination="oHl-0Y-LND" id="535-jS-9IU"/>
                         <outlet property="firstView" destination="ae6-cV-pOl" id="XAi-6c-OUg"/>
                         <outlet property="hexBG" destination="gyF-bt-yzm" id="ZdN-IO-i55"/>
                         <outlet property="hexFeat" destination="P8Z-kC-iAH" id="pVC-aT-5lG"/>
                         <outlet property="hexSide" destination="83b-gG-vWz" id="43j-ni-8jR"/>
+                        <outlet property="hexTXT" destination="heZ-Bz-sDb" id="iq6-SH-ao3"/>
                         <outlet property="iconFile" destination="J0r-kM-oOm" id="Ega-2d-TjY"/>
                         <outlet property="iconImage" destination="nKg-Oz-TAj" id="Pu5-B7-0hZ"/>
                         <outlet property="loadingView" destination="H0r-Xb-0Wj" id="nx3-D0-lBO"/>
@@ -871,6 +880,15 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pXm-YE-VsY">
+                            <rect key="frame" x="23" y="225" width="44" height="11"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Featured" id="MJg-tx-lo1">
+                                <font key="font" metaFont="label" size="9"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
                         <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RWV-2u-ckT">
                             <rect key="frame" x="17" y="188" width="44" height="23"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -905,8 +923,16 @@
                                 <action selector="changeFeatColor:" target="h2W-yR-xgs" id="fBC-EC-gZv"/>
                             </connections>
                         </colorWell>
+                        <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7n-gl-kV8">
+                            <rect key="frame" x="265" y="189" width="44" height="23"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="changeTXTColor:" target="h2W-yR-xgs" id="65l-ls-1rA"/>
+                            </connections>
+                        </colorWell>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jAw-Va-0Ww">
-                            <rect key="frame" x="15" y="100" width="78" height="16"/>
+                            <rect key="frame" x="15" y="115" width="78" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" title="Categories: " id="qjM-jb-hu6">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -915,7 +941,7 @@
                             </textFieldCell>
                         </textField>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lUh-6Y-KOV">
-                            <rect key="frame" x="15" y="135" width="62" height="16"/>
+                            <rect key="frame" x="15" y="147" width="62" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" title="Featured:" id="fIT-8v-aQu">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -924,7 +950,7 @@
                             </textFieldCell>
                         </textField>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lhv-pO-bdC">
-                            <rect key="frame" x="15" y="64" width="84" height="16"/>
+                            <rect key="frame" x="15" y="83" width="84" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" title="Background: " id="bb1-LN-Fce">
                                 <font key="font" usesAppearanceFont="YES"/>
@@ -933,28 +959,55 @@
                             </textFieldCell>
                         </textField>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gyF-bt-yzm">
-                            <rect key="frame" x="98" y="64" width="78" height="16"/>
+                            <rect key="frame" x="98" y="83" width="72" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" title="#FFFFFF" id="Ogv-xg-DIa">
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="#FFFFFF" id="Ogv-xg-DIa">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Taf-1e-zA9">
+                            <rect key="frame" x="15" y="51" width="70" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Text Color:" id="xtw-w8-Ntx">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="heZ-Bz-sDb">
+                            <rect key="frame" x="89" y="51" width="81" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="#FFFFFF" id="e8y-mH-Ljp">
                                 <font key="font" usesAppearanceFont="YES"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="83b-gG-vWz">
-                            <rect key="frame" x="91" y="100" width="85" height="16"/>
+                            <rect key="frame" x="91" y="115" width="79" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" title="#FFFFFF" id="hpE-uR-vNa">
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="#FFFFFF" id="hpE-uR-vNa">
                                 <font key="font" usesAppearanceFont="YES"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P8Z-kC-iAH">
-                            <rect key="frame" x="81" y="135" width="95" height="16"/>
+                            <rect key="frame" x="81" y="147" width="89" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" title="#FFFFFF" id="VdD-ev-HAd">
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="#FFFFFF" id="VdD-ev-HAd">
                                 <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PHA-HU-8Zp">
+                            <rect key="frame" x="220" y="272" width="50" height="11"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="App Name" id="nk7-ix-nIV">
+                                <font key="font" metaFont="label" size="9"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>

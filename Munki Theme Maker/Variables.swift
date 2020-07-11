@@ -41,6 +41,22 @@ class Variables: NSObject {
     @IBOutlet weak var feat: NSTextField!
     
     
+    @IBOutlet weak var appText: NSTextField!
+    @IBOutlet weak var featText: NSTextField!
+    @IBOutlet weak var catTxt: NSTextField!
+    @IBOutlet weak var hexTXT: NSTextField!
+    
+    @IBAction func changeTXTColor(_ sender: NSColorWell) {
+        
+        let colortxt = sender.color
+        appText.textColor = colortxt
+        catTxt.textColor = colortxt
+        hexTXT.stringValue = colortxt.hexString
+        
+        UserDefaults.standard.set(colortxt.hexString, forKey: "textColor") //STR
+        UserDefaults.standard.set(colortxt, forKey: "textColorSW")
+    }
+    
     @IBAction func changeBGColor(_ sender : NSColorWell)
     {
        let colorbg = sender.color
@@ -54,11 +70,7 @@ class Variables: NSObject {
         UserDefaults.standard.set(colorbg.hexString, forKey: "bgColor") //STR
         UserDefaults.standard.set(colorbg, forKey: "bgColorSW")
         
-        if (colorbg.hexString == "#FFFFFF") {
-            BG.textColor = NSColor.black
-        } else {
-            BG.textColor = NSColor.white
-        }
+        
         
     }
 
@@ -68,6 +80,7 @@ class Variables: NSObject {
        // do something with the color
         BGSide.textColor = colorside
         hexSide.stringValue = colorside.hexString
+        featText.textColor = colorside
         UserDefaults.standard.set(colorside.hexString, forKey: "sideColor") //STR
         UserDefaults.standard.set(colorside, forKey: "sideColorSW")
         
@@ -199,7 +212,7 @@ class Variables: NSObject {
            let arg501 = "v5.0.1"
             
            let argrb = "v3.2.1"
-           let argmt = "v1.3"
+           let argmt = "v1.4"
            
            let sourcerebrand = "https://github.com/ox-it/munki-rebrand"
            let targetrebrand = workingDirectory.stringValue + "/munki-rebrand"
@@ -237,7 +250,7 @@ class Variables: NSObject {
         let shellpath = Bundle.main.path(forResource: "rb.sh",ofType:nil)
         let shellpathstr = String(shellpath!)
         
-        task.arguments = [shellpathstr, appName.stringValue, workingDirectory.stringValue, certName.stringValue, appCert.stringValue, iconFile.stringValue, munkiVersion.titleOfSelectedItem!, outputDirectory.stringValue, bgcolor.stringValue, cat.stringValue, feat.stringValue]
+        task.arguments = [shellpathstr, appName.stringValue, workingDirectory.stringValue, certName.stringValue, appCert.stringValue, iconFile.stringValue, munkiVersion.titleOfSelectedItem!, outputDirectory.stringValue, bgcolor.stringValue, cat.stringValue, feat.stringValue, hexTXT.stringValue]
         
         sender.isEnabled = false
        
