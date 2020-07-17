@@ -61,6 +61,9 @@ bgcolor="$8" #BG Color
 sbcolor="$9" #SB Color
 featcolor="${10}" #FT Color
 txtcolor="${11}" #TXT Color
+buttcolor="${12}" #Butt Color
+butttxtcolor="${13}" #Butt TXT Color
+shaddow="${14}" #SHAD
 
 echo $appname
 echo $workingdir
@@ -73,6 +76,9 @@ echo $bgcolor
 echo $sbcolor
 echo $featcolor
 echo $txtcolor
+echo $buttcolor
+echo $butttxtcolor
+echo $shaddow
 
 ## Dont Edit
 sleep 0
@@ -107,7 +113,18 @@ cd  "$workingdir/munki-theme/$munkiversion/Dark-Theme/"
 sed -i'.bak' "s/#c8d6e5/$bgcolor/g" custom.css
 sed -i'.bak' "s/#718093/$sbcolor/g" custom.css
 sed -i'.bak' "s/#eeeeee/$txtcolor/g" custom.css
+sed -i'.bak' "s/#7f8fa6/$buttcolor/g" custom.css
+sed -i'.bak' "s/#dcdde1/$buttcolor/g" custom.css
+sed -i'.bak' "s/#2f3640/$butttxtcolor/g" custom.css
+sed -i'.bak' "s/color: #fff !important;/color: $butttxtcolor !important;/g" custom.css
 sed -i'.bak' "s/background-color: white !important;/background-color: $featcolor !important;/g" custom.css
+
+if [[ $shaddow == "on" ]]
+then
+  sed -i'.bak' "s/\/\*/ /g" custom.css
+  sed -i'.bak' "s/\*/\/ /g" custom.css
+fi
+
 cd  "$workingdir$fullpath"
 echo "$(echo "@import 'custom.css';" | cat - base.css)" > base.css
 echo Adding Custom CSS

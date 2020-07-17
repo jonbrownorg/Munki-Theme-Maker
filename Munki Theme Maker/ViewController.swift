@@ -45,6 +45,16 @@ class ViewController: NSViewController {
     @IBOutlet weak var hexTXT: NSTextField!
     @IBOutlet weak var featuredText: NSTextField!
     @IBOutlet weak var catText: NSTextField!
+    @IBOutlet weak var buttView: NSTextField!
+    @IBOutlet weak var buttImageView: NSImageView!
+    @IBOutlet weak var featButt: NSTextField!
+    @IBOutlet weak var buttonField: NSTextField!
+    @IBOutlet weak var buttColor: NSColorWell!
+    @IBOutlet weak var hexBUTT: NSTextField!
+    @IBOutlet weak var buttonTitle: NSTextField!
+    @IBOutlet weak var buttonTitleColor: NSColorWell!
+    @IBOutlet weak var hexbTitle: NSTextField!
+    @IBOutlet weak var shadValue: NSTextField!
     
     @IBOutlet var acSwitch: NSSegmentedControl!
     @IBAction func SwitchButton(_ sender: AnyObject) {
@@ -78,12 +88,30 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         
+        hexTXT.isHidden = true
+        hexFeat.isHidden = true
+        hexSide.isHidden =  true
+        hexBG.isHidden = true
+        hexBUTT.isHidden = true
+        hexbTitle.isHidden = true
+        shadValue.isHidden = true
+        
+        shadValue.stringValue = "off"
+        
         containerView.addSubview(variableView)
         colorView.removeFromSuperview()
         
         catImageView.wantsLayer = true
         catImageView.layer?.cornerRadius = 8.0
         catImageView.layer?.masksToBounds = true
+        
+        buttImageView.wantsLayer = true
+        buttImageView.layer?.cornerRadius = 8.0
+        buttImageView.layer?.masksToBounds = true
+        
+        buttView.wantsLayer = true
+        buttView.layer?.cornerRadius = 8.0
+        
         sideBar.wantsLayer = true
         sideBar.layer?.cornerRadius = 8.0
         
@@ -92,6 +120,10 @@ class ViewController: NSViewController {
         featuredImageView.layer?.masksToBounds = true
         featuredArea.wantsLayer = true
         featuredArea.layer?.cornerRadius = 8.0
+        featButt.wantsLayer = true
+        featButt.layer?.cornerRadius = 8.0
+        buttonField.wantsLayer = true
+        buttonField.layer?.cornerRadius = 15.0
         featColor.wantsLayer = true
         featColor.layer?.cornerRadius = 8.0
         
@@ -156,6 +188,7 @@ class ViewController: NSViewController {
             bgColor.drawsBackground = true
             bgColorWell.color = swiftBGColor!
             sideBar.backgroundColor = swiftBGColor
+            buttView.backgroundColor = swiftBGColor
             featColor.drawsBackground = true
             featColor.backgroundColor = swiftBGColor
 
@@ -165,6 +198,7 @@ class ViewController: NSViewController {
             bgColorWell.color = NSColor.white
             hexBG.stringValue = ""
             sideBar.backgroundColor = NSColor.white
+            buttView.backgroundColor = NSColor.white
             featColor.backgroundColor = NSColor.white
             featColor.drawsBackground = true
             bgColor.drawsBackground = true
@@ -195,10 +229,12 @@ class ViewController: NSViewController {
             featColorWell.color = swiftFTColor!
             hexFeat.stringValue = hexbgcolor
             featuredArea.backgroundColor = swiftFTColor
+            featButt.backgroundColor = swiftFTColor
             
                         
         } else {
             featuredArea.stringValue = ""
+            featButt.stringValue = ""
             featColorWell.color = NSColor.white
             hexFeat.stringValue = ""
         }
@@ -220,6 +256,40 @@ class ViewController: NSViewController {
             hexTXT.stringValue = ""
             appName.textColor = NSColor.white
             catText.textColor = NSColor.white
+        }
+        
+        if ((UserDefaults.standard.string(forKey: "butttextColor") != nil) || (UserDefaults.standard.string(forKey: "butttextColorSW") != nil)) {
+               
+            let swiftBUTTTXTColor = UserDefaults.standard.color(forKey: "butttextColorSW")
+            let hexbuttTXTcolor = UserDefaults.standard.string(forKey: "butttextColor")!
+            
+            
+            hexbTitle.stringValue = hexbuttTXTcolor
+            buttonTitle.textColor = swiftBUTTTXTColor
+            buttonTitleColor.color = swiftBUTTTXTColor!
+                        
+        } else {
+            hexbTitle.stringValue = "#FFFFFF"
+            buttonTitle.textColor = NSColor.white
+            buttonTitleColor.color = NSColor.white
+        }
+        
+        
+        if ((UserDefaults.standard.string(forKey: "buttColorSW") != nil) || (UserDefaults.standard.string(forKey: "buttColor") != nil)) {
+               
+            let swiftBUTTColor = UserDefaults.standard.color(forKey: "buttColorSW")
+            let hexbuttcolor = UserDefaults.standard.string(forKey: "buttColor")!
+            
+            buttonField.drawsBackground = true
+            buttonField.backgroundColor = swiftBUTTColor
+            hexBUTT.stringValue = hexbuttcolor
+            buttColor.color = swiftBUTTColor!
+                        
+        } else {
+            buttonField.drawsBackground = true
+            buttonField.backgroundColor = NSColor.gray
+            hexBUTT.stringValue = "#FFFFFF"
+            buttColor.color = NSColor.gray
         }
         
         

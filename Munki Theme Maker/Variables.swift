@@ -24,6 +24,8 @@ class Variables: NSObject {
     @IBOutlet weak var bgColor: NSColorWell!
     @IBOutlet weak var BGFeat: NSTextField!
     @IBOutlet weak var BGSide: NSTextField!
+    @IBOutlet weak var colorView: NSView!
+    @IBOutlet weak var iconView: NSView!
     
     @IBOutlet var theResTxt: NSTextView!
     @IBOutlet weak var spinner: NSProgressIndicator!
@@ -45,6 +47,58 @@ class Variables: NSObject {
     @IBOutlet weak var featText: NSTextField!
     @IBOutlet weak var catTxt: NSTextField!
     @IBOutlet weak var hexTXT: NSTextField!
+    @IBOutlet weak var featButt: NSTextField!
+    
+    @IBOutlet weak var buttonField: NSTextField!
+    @IBOutlet weak var buttView: NSTextField!
+    @IBOutlet weak var hexBUTT: NSTextField!
+    
+    @IBOutlet weak var hexbTitle: NSTextField!
+    @IBOutlet weak var buttonTitle: NSTextField!
+    @IBOutlet weak var shadValue: NSTextField!
+    
+    
+    @IBAction func changeShad(_ sender: NSButton) {
+    
+        switch sender.state {
+        case .on:
+            print("on")
+            shadValue.stringValue = "on"
+        case .off:
+            print("off")
+            shadValue.stringValue = "off"
+        case .mixed:
+            print("mixed")
+        default: break
+        }
+        
+        
+    }
+    
+    @IBAction func changeButtTitle(_ sender: NSColorWell) {
+        
+        let colortxtbutt = sender.color
+        buttonTitle.textColor = colortxtbutt
+        hexbTitle.stringValue = colortxtbutt.hexString
+        
+        UserDefaults.standard.set(colortxtbutt.hexString, forKey: "butttextColor") //STR
+        UserDefaults.standard.set(colortxtbutt, forKey: "butttextColorSW")
+        
+    }
+    
+    @IBAction func changeButtColor(_ sender: NSColorWell) {
+    
+        let colorbutt = sender.color
+        buttonField.drawsBackground = true
+        buttonField.backgroundColor = colorbutt
+        
+        hexBUTT.stringValue = colorbutt.hexString
+        
+        UserDefaults.standard.set(colorbutt.hexString, forKey: "buttColor") //STR
+        UserDefaults.standard.set(colorbutt, forKey: "buttColorSW")
+        
+    }
+    
     
     @IBAction func changeTXTColor(_ sender: NSColorWell) {
         
@@ -65,6 +119,7 @@ class Variables: NSObject {
         BG.backgroundColor = colorbg
         hexBG.stringValue = colorbg.hexString
         sideBar.backgroundColor = colorbg
+        buttView.backgroundColor = colorbg
         BGFeat.backgroundColor = colorbg
         
         UserDefaults.standard.set(colorbg.hexString, forKey: "bgColor") //STR
@@ -95,6 +150,8 @@ class Variables: NSObject {
        // do something with the color
         featuredArea.drawsBackground = true
         featuredArea.backgroundColor = colorfeat
+        featButt.drawsBackground = true
+        featButt.backgroundColor = colorfeat
         hexFeat.stringValue = colorfeat.hexString
         UserDefaults.standard.set(colorfeat.hexString, forKey: "featColor") //STR
         UserDefaults.standard.set(colorfeat, forKey: "featColorSW")
@@ -180,6 +237,9 @@ class Variables: NSObject {
     @IBAction func submit(_ sender: NSButton) {
         
         firstView.removeFromSuperview()
+        colorView.removeFromSuperview()
+        iconView.removeFromSuperview()
+        
         mainView.addSubview(loadingView)
         spinner.startAnimation(self)
         
@@ -212,7 +272,7 @@ class Variables: NSObject {
            let arg501 = "v5.0.1"
             
            let argrb = "v3.2.1"
-           let argmt = "v1.4"
+           let argmt = "v1.6"
            
            let sourcerebrand = "https://github.com/ox-it/munki-rebrand"
            let targetrebrand = workingDirectory.stringValue + "/munki-rebrand"
@@ -250,7 +310,7 @@ class Variables: NSObject {
         let shellpath = Bundle.main.path(forResource: "rb.sh",ofType:nil)
         let shellpathstr = String(shellpath!)
         
-        task.arguments = [shellpathstr, appName.stringValue, workingDirectory.stringValue, certName.stringValue, appCert.stringValue, iconFile.stringValue, munkiVersion.titleOfSelectedItem!, outputDirectory.stringValue, bgcolor.stringValue, cat.stringValue, feat.stringValue, hexTXT.stringValue]
+        task.arguments = [shellpathstr, appName.stringValue, workingDirectory.stringValue, certName.stringValue, appCert.stringValue, iconFile.stringValue, munkiVersion.titleOfSelectedItem!, outputDirectory.stringValue, bgcolor.stringValue, cat.stringValue, feat.stringValue, hexTXT.stringValue, hexBUTT.stringValue, hexbTitle.stringValue, shadValue.stringValue]
         
         sender.isEnabled = false
        
