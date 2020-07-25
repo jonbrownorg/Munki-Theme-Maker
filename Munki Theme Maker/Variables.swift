@@ -11,6 +11,7 @@ import Foundation
 
 class Variables: NSObject {
     
+    @IBOutlet weak var themeType: NSPopUpButton!
     @IBOutlet weak var munkiVersion: NSPopUpButton!
     @IBOutlet weak var appCert: NSTextField!
     @IBOutlet weak var iconFile: NSTextField!
@@ -272,7 +273,7 @@ class Variables: NSObject {
            let arg501 = "v5.0.1"
             
            let argrb = "v3.2.1"
-           let argmt = "v1.6"
+           let argmt = "v1.7"
            
            let sourcerebrand = "https://github.com/ox-it/munki-rebrand"
            let targetrebrand = workingDirectory.stringValue + "/munki-rebrand"
@@ -309,8 +310,9 @@ class Variables: NSObject {
         //let path = "/bin/bash"
         let shellpath = Bundle.main.path(forResource: "rb.sh",ofType:nil)
         let shellpathstr = String(shellpath!)
+        let themeTpe =  String(themeType.titleOfSelectedItem!)
         
-        task.arguments = [shellpathstr, appName.stringValue, workingDirectory.stringValue, certName.stringValue, appCert.stringValue, iconFile.stringValue, munkiVersion.titleOfSelectedItem!, outputDirectory.stringValue, bgcolor.stringValue, cat.stringValue, feat.stringValue, hexTXT.stringValue, hexBUTT.stringValue, hexbTitle.stringValue, shadValue.stringValue]
+        task.arguments = [shellpathstr, appName.stringValue, workingDirectory.stringValue, certName.stringValue, appCert.stringValue, iconFile.stringValue, munkiVersion.titleOfSelectedItem!, outputDirectory.stringValue, bgcolor.stringValue, cat.stringValue, feat.stringValue, hexTXT.stringValue, hexBUTT.stringValue, hexbTitle.stringValue, shadValue.stringValue, themeTpe]
         
         sender.isEnabled = false
        

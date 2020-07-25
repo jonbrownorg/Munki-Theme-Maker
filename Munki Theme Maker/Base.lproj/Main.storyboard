@@ -835,6 +835,7 @@
                         <outlet property="sideBar" destination="NT0-0O-Ld3" id="Bcl-SH-ADK"/>
                         <outlet property="spinner" destination="rec-zj-y4h" id="uYy-BD-7kD"/>
                         <outlet property="theResTxt" destination="vUB-UD-STZ" id="Hcn-Tm-Vpp"/>
+                        <outlet property="themeType" destination="30L-Du-4AC" id="2ZR-yn-Qzq"/>
                         <outlet property="workingDirectory" destination="1Md-ot-jRz" id="WhU-vm-kpx"/>
                     </connections>
                 </customObject>
@@ -1304,7 +1305,7 @@
                             </textFieldCell>
                         </textField>
                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LTh-Zz-f3h">
-                            <rect key="frame" x="20" y="306" width="288" height="25"/>
+                            <rect key="frame" x="20" y="306" width="128" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <popUpButtonCell key="cell" type="push" title="4.0.0" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="gti-wF-ulw" id="gUa-sV-g4v">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -1324,10 +1325,33 @@
                                 </menu>
                             </popUpButtonCell>
                         </popUpButton>
+                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="30L-Du-4AC">
+                            <rect key="frame" x="158" y="306" width="150" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <popUpButtonCell key="cell" type="push" title="Dark-Theme" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="QWz-6k-32Y" id="g4m-0F-6xE">
+                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                                <menu key="menu" id="SvT-s7-8WS">
+                                    <items>
+                                        <menuItem title="Dark-Theme" state="on" id="QWz-6k-32Y"/>
+                                        <menuItem title="Apple-Theme" id="lQ5-YQ-V3J"/>
+                                    </items>
+                                </menu>
+                            </popUpButtonCell>
+                        </popUpButton>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZWD-WK-o6w">
                             <rect key="frame" x="20" y="285" width="90" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" title="Munki Version" id="jPj-QK-V2u">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VGO-NB-aVH">
+                            <rect key="frame" x="158" y="285" width="86" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Munki Theme" id="i8f-ku-Wo9">
                                 <font key="font" usesAppearanceFont="YES"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

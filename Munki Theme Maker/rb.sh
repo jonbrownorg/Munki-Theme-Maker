@@ -64,6 +64,7 @@ txtcolor="${11}" #TXT Color
 buttcolor="${12}" #Butt Color
 butttxtcolor="${13}" #Butt TXT Color
 shaddow="${14}" #SHAD
+themetype="${15}" #THEMETYPE
 
 echo $appname
 echo $workingdir
@@ -79,6 +80,7 @@ echo $txtcolor
 echo $buttcolor
 echo $butttxtcolor
 echo $shaddow
+echo $themetype
 
 ## Dont Edit
 sleep 0
@@ -100,8 +102,8 @@ rm -rf "$workingdir/munki/code/tools/py3_requirements.txt"
 rm -rf "$workingdir/munki/code/tools/make_munki_mpkg.sh"
 echo Removing Uneeded Files
 
-cp "$workingdir/munki-theme/$munkiversion/Dark-Theme/py3_requirements.txt" "$workingdir/munki/code/tools/py3_requirements.txt"
-cp -r "$workingdir/munki-theme/$munkiversion/Dark-Theme/make_munki_mpkg.sh" "$workingdir/munki/code/tools/make_munki_mpkg.sh"
+cp "$workingdir/munki-theme/$munkiversion/$themetype/py3_requirements.txt" "$workingdir/munki/code/tools/py3_requirements.txt"
+cp -r "$workingdir/munki-theme/$munkiversion/$themetype/make_munki_mpkg.sh" "$workingdir/munki/code/tools/make_munki_mpkg.sh"
 echo Replacing with Modified Files
 
 #Making writeable
@@ -109,7 +111,7 @@ chmod 755 "$workingdir$fullpath/base.css"
 echo CHMOD file at "$workingdir$fullpath/base.css"
 
 #Adding Custom CSS
-cd  "$workingdir/munki-theme/$munkiversion/Dark-Theme/"
+cd  "$workingdir/munki-theme/$munkiversion/$themetype/"
 sed -i'.bak' "s/#c8d6e5/$bgcolor/g" custom.css
 sed -i'.bak' "s/#718093/$sbcolor/g" custom.css
 sed -i'.bak' "s/#eeeeee/$txtcolor/g" custom.css
@@ -130,14 +132,14 @@ echo "$(echo "@import 'custom.css';" | cat - base.css)" > base.css
 echo Adding Custom CSS
 
 #Copy CSS Files
-cp "$workingdir/munki-theme/$munkiversion/Dark-Theme/custom.css" "$workingdir$fullpath"
+cp "$workingdir/munki-theme/$munkiversion/$themetype/custom.css" "$workingdir$fullpath"
 rm "$workingdir$templatepath/detail_more_items_template.html"
-cp "$workingdir/munki-theme/$munkiversion/Dark-Theme/detail_more_items_template.html" "$workingdir$templatepath"
+cp "$workingdir/munki-theme/$munkiversion/$themetype/detail_more_items_template.html" "$workingdir$templatepath"
 echo Copy CSS Files
 
 #Modify PY Script
 rm "$workingdir$mid/mschtml.swift"
-cp "$workingdir/munki-theme/$munkiversion/Dark-Theme/mschtml.swift" "$workingdir$mid/mschtml.swift"
+cp "$workingdir/munki-theme/$munkiversion/$themetype/mschtml.swift" "$workingdir$mid/mschtml.swift"
 echo Modify mschtml.swift File
 
 #Modify icons
@@ -146,10 +148,10 @@ rm -rf "$workingdir$resources/toolbarCategoriesTemplate.pdf"
 rm -rf "$workingdir$resources/updatesTemplate.png"
 rm -rf "$workingdir$resources/MyStuffTemplate.png"
 rm -rf "$workingdir$resources/AllItemsTemplate.png"
-cp "$workingdir/munki-theme/$munkiversion/Dark-Theme/toolbarCategoriesTemplate.pdf" "$workingdir$resources"
-cp "$workingdir/munki-theme/$munkiversion/Dark-Theme/AllItemsTemplate.png" "$workingdir$resources"
-cp "$workingdir/munki-theme/$munkiversion/Dark-Theme/MyStuffTemplate.png" "$workingdir$resources"
-cp "$workingdir/munki-theme/$munkiversion/Dark-Theme/updatesTemplate.png" "$workingdir$resources"
+cp "$workingdir/munki-theme/$munkiversion/$themetype/toolbarCategoriesTemplate.pdf" "$workingdir$resources"
+cp "$workingdir/munki-theme/$munkiversion/$themetype/AllItemsTemplate.png" "$workingdir$resources"
+cp "$workingdir/munki-theme/$munkiversion/$themetype/MyStuffTemplate.png" "$workingdir$resources"
+cp "$workingdir/munki-theme/$munkiversion/$themetype/updatesTemplate.png" "$workingdir$resources"
 echo Modify icons
 
 echo Building munki
