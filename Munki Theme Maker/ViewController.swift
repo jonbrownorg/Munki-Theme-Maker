@@ -55,6 +55,9 @@ class ViewController: NSViewController {
     @IBOutlet weak var buttonTitleColor: NSColorWell!
     @IBOutlet weak var hexbTitle: NSTextField!
     @IBOutlet weak var shadValue: NSTextField!
+    @IBOutlet weak var ScrollView: NSScrollView!
+    @IBOutlet weak var postInstall: NSTextField!
+    @IBOutlet weak var scrollingView: NSView!
     
     @IBOutlet var acSwitch: NSSegmentedControl!
     @IBAction func SwitchButton(_ sender: AnyObject) {
@@ -87,6 +90,8 @@ class ViewController: NSViewController {
     
     
     override func viewDidLoad() {
+        
+        ScrollView.documentView?.scroll(NSPoint.zero)
         
         hexTXT.isHidden = true
         hexFeat.isHidden = true
@@ -139,7 +144,12 @@ class ViewController: NSViewController {
         imageBG.layer?.cornerRadius = 20.0
         imageBG.layer?.masksToBounds = true
        
-
+        if UserDefaults.standard.string(forKey: "PostscriptPath") != nil {
+            postInstall.stringValue = UserDefaults.standard.string(forKey: "PostscriptPath")!
+            
+        } else {
+            postInstall.stringValue = ""
+        }
         if UserDefaults.standard.string(forKey: "WorkingDirectory") != nil {
             workingDirectory.stringValue = UserDefaults.standard.string(forKey: "WorkingDirectory")!
             

@@ -65,6 +65,7 @@ buttcolor="${12}" #Butt Color
 butttxtcolor="${13}" #Butt TXT Color
 shaddow="${14}" #SHAD
 themetype="${15}" #THEMETYPE
+postscriptpath="${16}" #POSTSCRIPTPATH
 
 echo $appname
 echo $workingdir
@@ -81,6 +82,7 @@ echo $buttcolor
 echo $butttxtcolor
 echo $shaddow
 echo $themetype
+echo $postscriptpath
 
 ## Dont Edit
 sleep 0
@@ -165,7 +167,12 @@ echo $buildpath
 cd ..
 cd munki-rebrand/
 
+if [ -z "$postscriptpath" ]
+then
 sudo ./munki_rebrand.py --appname "$appname" --pkg "$buildpath" --icon-file "$icon" --sign-package "$signcert" --sign-binaries "$signcertapp" --output-file "Signed"
+else
+sudo ./munki_rebrand.py --appname "$appname" --pkg "$buildpath" --postinstall "$postscriptpath" --icon-file "$icon" --sign-package "$signcert" --sign-binaries "$signcertapp" --output-file "Signed"
+fi
 
 finalpath=`find $workingdir/munki-rebrand/ -type f -name "*.pkg"`
 echo $finalpath

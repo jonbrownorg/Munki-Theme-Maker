@@ -57,7 +57,15 @@ class Variables: NSObject {
     @IBOutlet weak var hexbTitle: NSTextField!
     @IBOutlet weak var buttonTitle: NSTextField!
     @IBOutlet weak var shadValue: NSTextField!
+    @IBOutlet weak var postscriptPath: NSTextField!
+    @IBOutlet weak var clearPostinstall: NSButton!
     
+    
+    @IBAction func clearPost(_ sender: Any) {
+        
+        postscriptPath.stringValue = ""
+        UserDefaults.standard.set(postscriptPath.stringValue, forKey: "PostscriptPath") //STR
+    }
     
     @IBAction func changeShad(_ sender: NSButton) {
     
@@ -212,6 +220,29 @@ class Variables: NSObject {
     }
     
     
+    @IBAction func getPostscript(_ sender: Any) {
+        let dialog = NSOpenPanel();
+
+               dialog.title                   = "Choose Postscript File | Munki Theme Builder";
+               dialog.showsResizeIndicator    = true;
+               dialog.showsHiddenFiles        = true;
+               dialog.canChooseFiles = true;
+               dialog.canChooseDirectories = false;
+
+               if (dialog.runModal() ==  NSApplication.ModalResponse.OK) {
+                   let result = dialog.url
+
+                   if (result != nil) {
+                       let _: String = result!.path
+                       postscriptPath.stringValue = result!.path
+                       UserDefaults.standard.set(result!.path, forKey: "PostscriptPath") //STR
+                   }
+               } else {
+                   // User clicked on "Cancel"
+                   return
+               }
+    }
+    
     @IBAction func getOutput(_ sender: AnyObject!) {
         let dialog = NSOpenPanel();
 
@@ -271,9 +302,10 @@ class Variables: NSObject {
            let arg414 = "v4.1.4"
            let arg5 = "v5.0.0"
            let arg501 = "v5.0.1"
+           let arg501b = "v5.1.0b1"
             
            let argrb = "v3.2.1"
-           let argmt = "v1.7"
+           let argmt = "v1.7.6"
            
            let sourcerebrand = "https://github.com/ox-it/munki-rebrand"
            let targetrebrand = workingDirectory.stringValue + "/munki-rebrand"
@@ -283,6 +315,8 @@ class Variables: NSObject {
 
          if munkiVersion.titleOfSelectedItem == "5.0.0" {
             try! Process().clone(repo: source, path: target, arg: arg5)
+         } else if munkiVersion.titleOfSelectedItem == "5.1.0ß" {
+            try! Process().clone(repo: source, path: target, arg: arg501b)
          } else if munkiVersion.titleOfSelectedItem == "5.0.1" {
             try! Process().clone(repo: source, path: target, arg: arg501)
          } else if munkiVersion.titleOfSelectedItem == "4.0.0" {
@@ -312,7 +346,7 @@ class Variables: NSObject {
         let shellpathstr = String(shellpath!)
         let themeTpe =  String(themeType.titleOfSelectedItem!)
         
-        task.arguments = [shellpathstr, appName.stringValue, workingDirectory.stringValue, certName.stringValue, appCert.stringValue, iconFile.stringValue, munkiVersion.titleOfSelectedItem!, outputDirectory.stringValue, bgcolor.stringValue, cat.stringValue, feat.stringValue, hexTXT.stringValue, hexBUTT.stringValue, hexbTitle.stringValue, shadValue.stringValue, themeTpe]
+        task.arguments = [shellpathstr, appName.stringValue, workingDirectory.stringValue, certName.stringValue, appCert.stringValue, iconFile.stringValue, munkiVersion.titleOfSelectedItem!, outputDirectory.stringValue, bgcolor.stringValue, cat.stringValue, feat.stringValue, hexTXT.stringValue, hexBUTT.stringValue, hexbTitle.stringValue, shadValue.stringValue, themeTpe, postscriptPath.stringValue]
         
         sender.isEnabled = false
        
@@ -331,7 +365,7 @@ class Variables: NSObject {
                     let file = "Munki-Theme-Maker-Log.txt" //this is the file. we will write to and read from it
 
                     let text = self.theResTxt.string  //the text we'll write
-
+                    
                     // we'll write the file in the user's documents directory
                     if let dir = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first {
 
