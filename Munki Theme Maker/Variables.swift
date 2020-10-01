@@ -302,10 +302,11 @@ class Variables: NSObject {
            let arg414 = "v4.1.4"
            let arg5 = "v5.0.0"
            let arg501 = "v5.0.1"
-           let arg501b = "v5.1.0b1"
+           let arg51 = "v5.1.0"
             
            let argrb = "v3.2.1"
-           let argmt = "v1.7.6"
+           let argrb3 = "v3.3"
+           let argmt = "v1.7.9"
            
            let sourcerebrand = "https://github.com/ox-it/munki-rebrand"
            let targetrebrand = workingDirectory.stringValue + "/munki-rebrand"
@@ -315,8 +316,8 @@ class Variables: NSObject {
 
          if munkiVersion.titleOfSelectedItem == "5.0.0" {
             try! Process().clone(repo: source, path: target, arg: arg5)
-         } else if munkiVersion.titleOfSelectedItem == "5.1.0ß" {
-            try! Process().clone(repo: source, path: target, arg: arg501b)
+         } else if munkiVersion.titleOfSelectedItem == "5.1.0" {
+            try! Process().clone(repo: source, path: target, arg: arg51)
          } else if munkiVersion.titleOfSelectedItem == "5.0.1" {
             try! Process().clone(repo: source, path: target, arg: arg501)
          } else if munkiVersion.titleOfSelectedItem == "4.0.0" {
@@ -335,7 +336,12 @@ class Variables: NSObject {
            try! Process().clone(repo: source, path: target, arg: arg414)
          }
         
-           try! Process().clone(repo: sourcerebrand, path: targetrebrand, arg: argrb)
+        if munkiVersion.titleOfSelectedItem == "5.1.0" {
+            try! Process().clone(repo: sourcerebrand, path: targetrebrand, arg: argrb3)
+        } else {
+            try! Process().clone(repo: sourcerebrand, path: targetrebrand, arg: argrb)
+        }
+           
            try! Process().clone(repo: sourcetheme, path: targettheme, arg: argmt)
         
         let task = Process()

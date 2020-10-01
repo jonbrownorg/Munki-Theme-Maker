@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
         <capability name="System colors introduced in macOS 10.13" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -739,49 +739,55 @@
                                     <action selector="submit:" target="h2W-yR-xgs" id="iR3-CM-cKp"/>
                                 </connections>
                             </button>
-                            <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3c-lY-rZd">
+                            <visualEffectView fixedFrame="YES" blendingMode="behindWindow" material="sidebar" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="sGB-Ud-JUv">
                                 <rect key="frame" x="0.0" y="48" width="325" height="350"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="ajN-kJ-ebr">
-                                    <rect key="frame" x="1" y="1" width="323" height="348"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <view id="O1R-hY-RKn">
-                                            <rect key="frame" x="0.0" y="0.0" width="324" height="400"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3c-lY-rZd">
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="350"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="ajN-kJ-ebr">
+                                            <rect key="frame" x="1" y="1" width="323" height="348"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s0g-NY-at6">
-                                                    <rect key="frame" x="0.0" y="2" width="325" height="400"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <view id="O1R-hY-RKn">
+                                                    <rect key="frame" x="0.0" y="0.0" width="324" height="400"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s0g-NY-at6">
+                                                            <rect key="frame" x="0.0" y="2" width="325" height="400"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                                                                    <size key="value" width="325" height="400"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="flipped" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </customView>
+                                                    </subviews>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                                                        <userDefinedRuntimeAttribute type="size" keyPath="contentView">
                                                             <size key="value" width="325" height="400"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="flipped" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
-                                                </customView>
+                                                </view>
                                             </subviews>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="size" keyPath="contentView">
-                                                    <size key="value" width="325" height="400"/>
-                                                </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="flipped" value="YES"/>
                                             </userDefinedRuntimeAttributes>
-                                        </view>
-                                    </subviews>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="flipped" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                </clipView>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="a3G-lF-JQ4">
-                                    <rect key="frame" x="1" y="333" width="323" height="16"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.96153846153846156" horizontal="NO" id="ek9-Rn-TRT">
-                                    <rect key="frame" x="308" y="1" width="16" height="348"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
+                                        </clipView>
+                                        <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="a3G-lF-JQ4">
+                                            <rect key="frame" x="1" y="333" width="323" height="16"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ek9-Rn-TRT">
+                                            <rect key="frame" x="308" y="1" width="16" height="348"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                    </scrollView>
+                                </subviews>
+                            </visualEffectView>
                         </subviews>
                     </view>
                     <connections>
@@ -1142,34 +1148,34 @@
                     <rect key="frame" x="0.0" y="0.0" width="325" height="400"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <visualEffectView appearanceType="vibrantLight" fixedFrame="YES" blendingMode="behindWindow" material="contentBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="qkL-KX-iRl">
+                        <visualEffectView fixedFrame="YES" blendingMode="behindWindow" material="sidebar" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="qkL-KX-iRl">
                             <rect key="frame" x="0.0" y="0.0" width="325" height="282"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icg-9i-3YJ">
+                                <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icg-9i-3YJ">
                                     <rect key="frame" x="0.0" y="0.0" width="325" height="282"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="EF9-8m-04o">
-                                        <rect key="frame" x="0.0" y="0.0" width="325" height="282"/>
+                                        <rect key="frame" x="1" y="1" width="323" height="280"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="bar" spellingCorrection="YES" smartInsertDelete="YES" id="vUB-UD-STZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="325" height="282"/>
+                                            <textView drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="bar" spellingCorrection="YES" smartInsertDelete="YES" id="vUB-UD-STZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="323" height="280"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                <size key="minSize" width="325" height="282"/>
+                                                <size key="minSize" width="323" height="280"/>
                                                 <size key="maxSize" width="325" height="10000000"/>
                                                 <color key="insertionPointColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </textView>
                                         </subviews>
                                     </clipView>
-                                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="9hY-n2-HRF">
-                                        <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                                    <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="9hY-n2-HRF">
+                                        <rect key="frame" x="1" y="265" width="323" height="16"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="bWJ-2V-khu">
-                                        <rect key="frame" x="309" y="0.0" width="16" height="282"/>
+                                        <rect key="frame" x="308" y="1" width="16" height="280"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>
@@ -1188,6 +1194,10 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
+                        <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="JOE-Lc-wDB">
+                            <rect key="frame" x="0.0" y="280" width="325" height="5"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </box>
                     </subviews>
                 </customView>
                 <customView id="vl7-0w-UGd">
@@ -1358,7 +1368,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <popUpButtonCell key="cell" type="push" title="4.0.0" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="gti-wF-ulw" id="gUa-sV-g4v">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
+                                <font key="font" metaFont="menu"/>
                                 <menu key="menu" id="zrj-rs-U3p">
                                     <items>
                                         <menuItem title="4.0.0" state="on" id="gti-wF-ulw"/>
@@ -1370,7 +1380,7 @@
                                         <menuItem title="4.1.4" id="T2T-3x-IO8"/>
                                         <menuItem title="5.0.0" id="8fB-SD-BLC"/>
                                         <menuItem title="5.0.1" id="nHA-kw-5U8"/>
-                                        <menuItem title="5.1.0ß" id="jdD-Jr-Z5s"/>
+                                        <menuItem title="5.1.0" id="6eY-3V-7TF"/>
                                     </items>
                                 </menu>
                             </popUpButtonCell>
@@ -1380,7 +1390,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <popUpButtonCell key="cell" type="push" title="Dark-Theme" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="QWz-6k-32Y" id="g4m-0F-6xE">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
+                                <font key="font" metaFont="menu"/>
                                 <menu key="menu" id="SvT-s7-8WS">
                                     <items>
                                         <menuItem title="Dark-Theme" state="on" id="QWz-6k-32Y"/>
