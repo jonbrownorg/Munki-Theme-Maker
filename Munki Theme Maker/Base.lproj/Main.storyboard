@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
         <capability name="System colors introduced in macOS 10.13" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -713,21 +713,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="325" height="450"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1tp-am-DXw">
-                                <rect key="frame" x="42" y="411" width="240" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="rounded" trackingMode="selectOne" id="1ZR-a9-NbX">
-                                    <font key="font" metaFont="system"/>
-                                    <segments>
-                                        <segment label="Variables" selected="YES"/>
-                                        <segment label="Colors" tag="1"/>
-                                        <segment label="Icon"/>
-                                    </segments>
-                                </segmentedCell>
-                                <connections>
-                                    <action selector="SwitchButton:" target="XfG-lQ-9wD" id="qkf-gE-eu6"/>
-                                </connections>
-                            </segmentedControl>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2It-pQ-8fr">
                                 <rect key="frame" x="14" y="8" width="297" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -788,12 +773,26 @@
                                     </scrollView>
                                 </subviews>
                             </visualEffectView>
+                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1tp-am-DXw">
+                                <rect key="frame" x="38" y="413" width="248" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fillProportionally" style="rounded" trackingMode="selectOne" id="1ZR-a9-NbX">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment label="Variables" selected="YES"/>
+                                        <segment label="Colors" tag="1"/>
+                                        <segment label="Icon"/>
+                                        <segment label="Munki"/>
+                                    </segments>
+                                </segmentedCell>
+                                <connections>
+                                    <action selector="SwitchButton:" target="XfG-lQ-9wD" id="qkf-gE-eu6"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="BGColor" destination="RWV-2u-ckT" id="16z-tx-nJt"/>
                         <outlet property="ScrollView" destination="o3c-lY-rZd" id="g8F-Dc-kQC"/>
-                        <outlet property="WorkingDirectory" destination="1Md-ot-jRz" id="6dV-IK-JFZ"/>
                         <outlet property="acSwitch" destination="1tp-am-DXw" id="TeN-6C-mzt"/>
                         <outlet property="appCert" destination="2ov-KH-WNo" id="QVM-zR-ch2"/>
                         <outlet property="appName" destination="iab-GI-pGH" id="vvv-Ez-SYq"/>
@@ -830,6 +829,7 @@
                         <outlet property="loadingView" destination="H0r-Xb-0Wj" id="rOF-vq-9ST"/>
                         <outlet property="outputPath" destination="kaD-on-QTq" id="xes-pc-4Lh"/>
                         <outlet property="postInstall" destination="HGA-XM-qce" id="1ID-nB-nyM"/>
+                        <outlet property="prefView" destination="iZF-U0-eFg" id="gLh-Zc-Kvt"/>
                         <outlet property="shadValue" destination="4dl-2y-ISj" id="WwD-bp-5gG"/>
                         <outlet property="sideBar" destination="NT0-0O-Ld3" id="9iS-Ww-adi"/>
                         <outlet property="sideColor" destination="xuo-Rl-Lg1" id="MPP-hH-IrS"/>
@@ -838,6 +838,7 @@
                         <outlet property="textColor" destination="H7n-gl-kV8" id="3Zy-4Q-IED"/>
                         <outlet property="variableView" destination="ae6-cV-pOl" id="fcJ-GY-rSk"/>
                         <outlet property="variables" destination="h2W-yR-xgs" id="uK5-gt-0QP"/>
+                        <outlet property="workingDirectory" destination="1Md-ot-jRz" id="7qW-qG-q3B"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -851,10 +852,14 @@
                         <outlet property="appText" destination="PHA-HU-8Zp" id="2Rd-z2-DFX"/>
                         <outlet property="bgColor" destination="RWV-2u-ckT" id="giw-Xe-L31"/>
                         <outlet property="bgcolor" destination="gyF-bt-yzm" id="ydy-h9-bzu"/>
+                        <outlet property="buildMDM" destination="Px4-WA-AsP" id="2g0-AF-wnF"/>
+                        <outlet property="buildPYSSL" destination="488-dU-uY8" id="Jwe-pQ-l7D"/>
+                        <outlet property="buildPython" destination="Qhe-fa-GtA" id="4Kf-oV-EZ2"/>
+                        <outlet property="buildRosetta" destination="4C6-d7-s2v" id="MbS-Ho-IAZ"/>
                         <outlet property="buttView" destination="xgn-bo-tSa" id="RhM-Ww-oW5"/>
                         <outlet property="buttonField" destination="RZv-mc-q2l" id="1CP-v6-uSj"/>
                         <outlet property="buttonTitle" destination="I43-xA-36I" id="kVk-Vd-f3p"/>
-                        <outlet property="buttonTitleColor" destination="5k1-ys-mS7" id="5hA-TS-Yan"/>
+                        <outlet property="bypassRebrand" destination="DiV-7m-3rK" id="wAt-8q-yID"/>
                         <outlet property="cat" destination="83b-gG-vWz" id="y6S-Lg-8ql"/>
                         <outlet property="catTxt" destination="IzU-Fb-m7m" id="3TZ-Hf-hVU"/>
                         <outlet property="certName" destination="XYN-MH-wNg" id="Vig-b6-wNt"/>
@@ -880,8 +885,10 @@
                         <outlet property="myViewController" destination="XfG-lQ-9wD" id="S7y-TL-h0G"/>
                         <outlet property="outputDirectory" destination="kaD-on-QTq" id="djd-Va-9Sh"/>
                         <outlet property="postscriptPath" destination="HGA-XM-qce" id="xYn-Z8-xXq"/>
+                        <outlet property="prefView" destination="iZF-U0-eFg" id="tO7-zm-CsI"/>
                         <outlet property="shadValue" destination="4dl-2y-ISj" id="yL3-6V-rQC"/>
                         <outlet property="sideBar" destination="NT0-0O-Ld3" id="Bcl-SH-ADK"/>
+                        <outlet property="signMunki" destination="Vwq-8R-pWL" id="vP4-Zv-KEb"/>
                         <outlet property="spinner" destination="rec-zj-y4h" id="uYy-BD-7kD"/>
                         <outlet property="theResTxt" destination="vUB-UD-STZ" id="Hcn-Tm-Vpp"/>
                         <outlet property="themeType" destination="30L-Du-4AC" id="2ZR-yn-Qzq"/>
@@ -1157,7 +1164,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="EF9-8m-04o">
                                         <rect key="frame" x="1" y="1" width="323" height="280"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <textView drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="bar" spellingCorrection="YES" smartInsertDelete="YES" id="vUB-UD-STZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="323" height="280"/>
@@ -1383,6 +1390,11 @@
                                         <menuItem title="5.1.0" id="6eY-3V-7TF"/>
                                         <menuItem title="5.1.1" id="28Z-lG-LpI"/>
                                         <menuItem title="5.1.2" id="JPh-pL-9PU"/>
+                                        <menuItem title="5.2.1" id="K2H-5N-kwU"/>
+                                        <menuItem title="5.2.2" id="rPL-Yi-TPB"/>
+                                        <menuItem title="5.2.3" id="OmS-LG-I4Q"/>
+                                        <menuItem title="5.3.0" id="0Lr-ZJ-sEv"/>
+                                        <menuItem title="5.4.0" id="sUE-tr-Czd"/>
                                     </items>
                                 </menu>
                             </popUpButtonCell>
@@ -1466,6 +1478,150 @@
                         </button>
                     </subviews>
                 </customView>
+                <customView id="iZF-U0-eFg">
+                    <rect key="frame" x="0.0" y="0.0" width="325" height="400"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bkd-wA-fpW">
+                            <rect key="frame" x="18" y="313" width="131" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Build Munki for MDM" id="ulZ-t1-mWz">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Px4-WA-AsP">
+                            <rect key="frame" x="180" y="307" width="128" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <popUpButtonCell key="cell" type="push" title="Yes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="143-cl-TU9" id="5PS-Rm-eXC">
+                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="menu"/>
+                                <menu key="menu" id="9CH-pQ-FZf">
+                                    <items>
+                                        <menuItem title="No" id="TUE-pv-TtO"/>
+                                        <menuItem title="Yes" state="on" id="143-cl-TU9"/>
+                                    </items>
+                                </menu>
+                            </popUpButtonCell>
+                        </popUpButton>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xXk-L9-3pE">
+                            <rect key="frame" x="18" y="271" width="128" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Include Rosetta PKG" id="aVv-Tq-z3M">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4C6-d7-s2v">
+                            <rect key="frame" x="180" y="265" width="128" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <popUpButtonCell key="cell" type="push" title="Yes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Gv5-hR-2C1" id="2wQ-kE-PyE">
+                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="menu"/>
+                                <menu key="menu" id="eWP-tj-0AE">
+                                    <items>
+                                        <menuItem title="No" id="AlZ-14-UgS"/>
+                                        <menuItem title="Yes" state="on" id="Gv5-hR-2C1"/>
+                                    </items>
+                                </menu>
+                            </popUpButtonCell>
+                        </popUpButton>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1bF-zw-RsH">
+                            <rect key="frame" x="18" y="232" width="81" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Build Python" id="GF8-JT-574">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qhe-fa-GtA">
+                            <rect key="frame" x="180" y="226" width="128" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <popUpButtonCell key="cell" type="push" title="Yes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="4va-5S-efk" id="7yv-YW-aVS">
+                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="menu"/>
+                                <menu key="menu" id="ePi-lU-oly">
+                                    <items>
+                                        <menuItem title="No" id="Fua-6G-ihY"/>
+                                        <menuItem title="Yes" state="on" id="4va-5S-efk"/>
+                                    </items>
+                                </menu>
+                            </popUpButtonCell>
+                        </popUpButton>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RGH-9c-c2b">
+                            <rect key="frame" x="18" y="192" width="120" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Include pyOpenssl " id="s6Q-YF-lcO">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="488-dU-uY8">
+                            <rect key="frame" x="180" y="186" width="128" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <popUpButtonCell key="cell" type="push" title="Yes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="N9G-fy-4JE" id="Qv3-DD-Iwi">
+                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="menu"/>
+                                <menu key="menu" id="nub-8U-OCg">
+                                    <items>
+                                        <menuItem title="No" id="ILp-CD-cCe"/>
+                                        <menuItem title="Yes" state="on" id="N9G-fy-4JE"/>
+                                    </items>
+                                </menu>
+                            </popUpButtonCell>
+                        </popUpButton>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LqJ-JU-7ie">
+                            <rect key="frame" x="18" y="150" width="108" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Sign using Munki" id="6TD-m6-qrs">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vwq-8R-pWL">
+                            <rect key="frame" x="180" y="144" width="128" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <popUpButtonCell key="cell" type="push" title="Yes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="amP-YE-RfD" id="XAd-SI-1iJ">
+                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="menu"/>
+                                <menu key="menu" id="Ny9-c7-R9h">
+                                    <items>
+                                        <menuItem title="No" id="S1T-go-tES"/>
+                                        <menuItem title="Yes" state="on" id="amP-YE-RfD"/>
+                                    </items>
+                                </menu>
+                            </popUpButtonCell>
+                        </popUpButton>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b3A-rE-slP">
+                            <rect key="frame" x="18" y="354" width="143" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Bypass Munki Rebrand" id="DWZ-k8-ra1">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DiV-7m-3rK">
+                            <rect key="frame" x="180" y="348" width="128" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <popUpButtonCell key="cell" type="push" title="Yes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="c5f-cC-0E9" id="3d0-S4-TkT">
+                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="menu"/>
+                                <menu key="menu" id="OKf-gd-q0R">
+                                    <items>
+                                        <menuItem title="No" id="D3v-EQ-THJ"/>
+                                        <menuItem title="Yes" state="on" id="c5f-cC-0E9"/>
+                                    </items>
+                                </menu>
+                            </popUpButtonCell>
+                        </popUpButton>
+                    </subviews>
+                </customView>
                 <userDefaultsController representsSharedInstance="YES" id="Lpl-px-yEQ"/>
             </objects>
             <point key="canvasLocation" x="99.5" y="1191"/>
@@ -1475,6 +1631,6 @@
         <image name="BG" width="185.5" height="135.5"/>
         <image name="BUTT" width="185.5" height="135.5"/>
         <image name="FEAT" width="135.5" height="135.5"/>
-        <image name="NSStopProgressFreestandingTemplate" width="14" height="14"/>
+        <image name="NSStopProgressFreestandingTemplate" width="15" height="15"/>
     </resources>
 </document>

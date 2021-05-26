@@ -16,6 +16,7 @@ class ViewController: NSViewController {
     @IBOutlet var variables: Variables?
     @IBOutlet weak var containerView: NSView!
     @IBOutlet var variableView: NSView!
+    @IBOutlet var prefView: NSView!
     @IBOutlet var colorView: NSView!
     @IBOutlet var iconView: NSView!
     @IBOutlet weak var workingDirectory: NSTextField!
@@ -66,16 +67,25 @@ class ViewController: NSViewController {
             containerView.addSubview(variableView)
             colorView.removeFromSuperview()
             iconView.removeFromSuperview()
+            prefView.removeFromSuperview()
             break
         case 1:
             containerView.addSubview(colorView)
             variableView.removeFromSuperview()
             iconView.removeFromSuperview()
+            prefView.removeFromSuperview()
             break
         case 2:
             variableView.removeFromSuperview()
             colorView.removeFromSuperview()
             containerView.addSubview(iconView)
+            prefView.removeFromSuperview()
+            break
+        case 3:
+            variableView.removeFromSuperview()
+            colorView.removeFromSuperview()
+            iconView.removeFromSuperview()
+            containerView.addSubview(prefView)
             break
         default:
             variableView.removeFromSuperview()

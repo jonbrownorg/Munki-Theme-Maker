@@ -66,6 +66,12 @@ butttxtcolor="${13}" #Butt TXT Color
 shaddow="${14}" #SHAD
 themetype="${15}" #THEMETYPE
 postscriptpath="${16}" #POSTSCRIPTPATH
+bypassrebrand="${17}" #BYPASSREBRAND
+MDM="${18}" #MDM
+rosetta="${19}" #ROSETTA
+python="${20}" #PYTHON
+pythonssl="${21}" #PYTHONSSL
+signmunki="${22}" #SIGNMUNKI
 
 echo $appname
 echo $workingdir
@@ -83,6 +89,12 @@ echo $butttxtcolor
 echo $shaddow
 echo $themetype
 echo $postscriptpath
+echo $bypassrebrand
+echo $MDM
+echo $rosetta
+echo $python
+echo $pythonssl
+echo $signmunki
 
 ## Dont Edit
 sleep 0
@@ -93,18 +105,22 @@ templatepath='/munki/code/apps/Managed Software Center/Managed Software Center/R
 resources='/munki/code/apps/Managed Software Center/Managed Software Center/Resources/'
 controllers='/munki/code/apps/Managed Software Center/Managed Software Center/Controllers'
 
+if [ $pythonssl = "Yes" ]; then
+    #PYSSL
+    chflags -R nouchg "$workingdir/munki/code/tools/py3_requirements.txt"
+    echo Unlocking file at "$workingdir/munki/code/tools/py3_requirements.txt"
+    rm -rf "$workingdir/munki/code/tools/py3_requirements.txt"
+    cp "$workingdir/munki-theme/$munkiversion/$themetype/py3_requirements.txt" "$workingdir/munki/code/tools/py3_requirements.txt"
+fi
+
 #Unlocking File
 chflags -R nouchg "$workingdir$fullpath/base.css"
 echo Unlocking file at "$workingdir$fullpath/base.css"
-
-chflags -R nouchg "$workingdir/munki/code/tools/py3_requirements.txt"
-echo Unlocking file at "$workingdir/munki/code/tools/py3_requirements.txt"
-
-rm -rf "$workingdir/munki/code/tools/py3_requirements.txt"
 rm -rf "$workingdir/munki/code/tools/make_munki_mpkg.sh"
+ln -s "$workingdir/munki/code" "$workingdir/munki/code/tools/code"
+
 echo Removing Uneeded Files
 
-cp "$workingdir/munki-theme/$munkiversion/$themetype/py3_requirements.txt" "$workingdir/munki/code/tools/py3_requirements.txt"
 cp -r "$workingdir/munki-theme/$munkiversion/$themetype/make_munki_mpkg.sh" "$workingdir/munki/code/tools/make_munki_mpkg.sh"
 echo Replacing with Modified Files
 
@@ -156,28 +172,49 @@ cp "$workingdir/munki-theme/$munkiversion/$themetype/MyStuffTemplate.png" "$work
 cp "$workingdir/munki-theme/$munkiversion/$themetype/updatesTemplate.png" "$workingdir$resources"
 echo Modify icons
 
+#Building Munki
 echo Building munki
 cd $workingdir/munki
-./code/tools/make_munki_mpkg.sh -o $output
-echo Munki Built
 
-buildpath=`find $output -type f -name "*.pkg"`
-echo $buildpath
+if [ "$signmunki" == "Yes" ]; then
 
-cd ..
-cd munki-rebrand/
+    ./code/tools/make_munki_mpkg.sh `if [ "$MDM" == "Yes" ]; then echo "-m"; fi` `if [ "$rosetta" == "Yes" ]; then echo "-R"; fi` `if [ "$python" == "Yes" ]; then echo "-p"; fi` -s "${signcert}" -S "${signcertapp}" -o "$output"
 
-if [ -z "$postscriptpath" ]
-then
-sudo ./munki_rebrand.py --appname "$appname" --pkg "$buildpath" --icon-file "$icon" --sign-package "$signcert" --sign-binaries "$signcertapp" --output-file "Signed"
 else
-sudo ./munki_rebrand.py --appname "$appname" --pkg "$buildpath" --postinstall "$postscriptpath" --icon-file "$icon" --sign-package "$signcert" --sign-binaries "$signcertapp" --output-file "Signed"
+
+    ./code/tools/make_munki_mpkg.sh `if [ "$MDM" == "Yes" ]; then echo "-m"; fi` `if [ "$rosetta" == "Yes" ]; then echo "-R"; fi` `if [ "$python" == "Yes" ]; then echo "-p"; fi` -o "$output"
+
 fi
 
-finalpath=`find $workingdir/munki-rebrand/ -type f -name "*.pkg"`
-echo $finalpath
 
-mv $finalpath $output
+#Munki Rebrand
+if [ $bypassrebrand = "Yes" ]; then
+
+    open $output
+    
+    exit 0
+
+else
+
+    buildpath=`find $output -type f -name "*.pkg"`
+    echo $buildpath
+
+    cd ..
+    cd munki-rebrand/
+
+    if [ -z "$postscriptpath" ]
+    then
+        sudo ./munki_rebrand.py --appname "$appname" --pkg "$buildpath" --icon-file "$icon" --sign-package "$signcert" --sign-binaries "$signcertapp" --output-file "Signed"
+    else
+        sudo ./munki_rebrand.py --appname "$appname" --pkg "$buildpath" --postinstall "$postscriptpath" --icon-file "$icon" --sign-package "$signcert" --sign-binaries "$signcertapp" --output-file "Signed"
+    fi
+
+    finalpath=`find $workingdir/munki-rebrand/ -type f -name "*.pkg"`
+    echo $finalpath
+
+    mv $finalpath $output
+
+fi
 
 open $output
 

@@ -33,6 +33,7 @@ class Variables: NSObject {
     @IBOutlet weak var firstView: NSView!
     @IBOutlet weak var loadingView: NSView!
     @IBOutlet weak var mainView: NSView!
+    @IBOutlet weak var prefView: NSView!
     @IBOutlet weak var hexBG: NSTextField!
     @IBOutlet weak var hexSide: NSTextField!
     @IBOutlet weak var sideBar: NSTextField!
@@ -60,6 +61,12 @@ class Variables: NSObject {
     @IBOutlet weak var postscriptPath: NSTextField!
     @IBOutlet weak var clearPostinstall: NSButton!
     
+    @IBOutlet weak var bypassRebrand: NSPopUpButton!
+    @IBOutlet weak var buildMDM: NSPopUpButton!
+    @IBOutlet weak var buildRosetta: NSPopUpButton!
+    @IBOutlet weak var buildPython: NSPopUpButton!
+    @IBOutlet weak var buildPYSSL: NSPopUpButton!
+    @IBOutlet weak var signMunki: NSPopUpButton!
     
     @IBAction func clearPost(_ sender: Any) {
         
@@ -271,6 +278,7 @@ class Variables: NSObject {
         firstView.removeFromSuperview()
         colorView.removeFromSuperview()
         iconView.removeFromSuperview()
+        prefView.removeFromSuperview()
         
         mainView.addSubview(loadingView)
         spinner.startAnimation(self)
@@ -305,9 +313,15 @@ class Variables: NSObject {
            let arg51 = "v5.1.0"
            let arg511 = "v5.1.1"
            let arg512 = "v5.1.2"
+           let arg521 = "v5.2.1"
+           let arg522 = "v5.2.2"
+           let arg523 = "v5.2.3"
+           let arg53 = "v5.3.0"
+           let arg54 = "v5.4.0"
         
            let argrb = "v3.2.1"
-           let argrb3 = "v3.3"
+           let argrb3 = "v3.3.1"
+           let argrb4 = "v4.1"
            let argmt = "v1.9.0"
            
            let sourcerebrand = "https://github.com/ox-it/munki-rebrand"
@@ -320,6 +334,16 @@ class Variables: NSObject {
             try! Process().clone(repo: source, path: target, arg: arg5)
          } else if munkiVersion.titleOfSelectedItem == "5.1.2" {
             try! Process().clone(repo: source, path: target, arg: arg512)
+         } else if munkiVersion.titleOfSelectedItem == "5.2.1" {
+            try! Process().clone(repo: source, path: target, arg: arg521)
+         } else if munkiVersion.titleOfSelectedItem == "5.2.2" {
+            try! Process().clone(repo: source, path: target, arg: arg522)
+         } else if munkiVersion.titleOfSelectedItem == "5.2.3" {
+            try! Process().clone(repo: source, path: target, arg: arg523)
+         } else if munkiVersion.titleOfSelectedItem == "5.3.0" {
+            try! Process().clone(repo: source, path: target, arg: arg53)
+         } else if munkiVersion.titleOfSelectedItem == "5.4.0" {
+            try! Process().clone(repo: source, path: target, arg: arg54)
          } else if munkiVersion.titleOfSelectedItem == "5.1.1" {
             try! Process().clone(repo: source, path: target, arg: arg511)
          } else if munkiVersion.titleOfSelectedItem == "5.1.0" {
@@ -342,27 +366,35 @@ class Variables: NSObject {
            try! Process().clone(repo: source, path: target, arg: arg414)
          }
         
-        if munkiVersion.titleOfSelectedItem == "5.1.0" {
-            try! Process().clone(repo: sourcerebrand, path: targetrebrand, arg: argrb3)
-        } else if munkiVersion.titleOfSelectedItem == "5.1.1" {
-            try! Process().clone(repo: sourcerebrand, path: targetrebrand, arg: argrb3)
-        } else if munkiVersion.titleOfSelectedItem == "5.1.2" {
-            try! Process().clone(repo: sourcerebrand, path: targetrebrand, arg: argrb3)
+        if munkiVersion.titleOfSelectedItem == "5.1.0" || munkiVersion.titleOfSelectedItem == "5.1.1" || munkiVersion.titleOfSelectedItem == "5.1.2" || munkiVersion.titleOfSelectedItem == "5.2.1" || munkiVersion.titleOfSelectedItem == "5.2.2" || munkiVersion.titleOfSelectedItem == "5.3.0" || munkiVersion.titleOfSelectedItem == "5.4.0" {
+            try! Process().clone(repo: sourcerebrand, path: targetrebrand, arg: argrb4)
         } else {
             try! Process().clone(repo: sourcerebrand, path: targetrebrand, arg: argrb)
         }
-           
            try! Process().clone(repo: sourcetheme, path: targettheme, arg: argmt)
         
         let task = Process()
         task.launchPath = "/bin/bash"
         
+        var shellpath:String
         //let path = "/bin/bash"
-        let shellpath = Bundle.main.path(forResource: "rb.sh",ofType:nil)
-        let shellpathstr = String(shellpath!)
-        let themeTpe =  String(themeType.titleOfSelectedItem!)
+        if munkiVersion.titleOfSelectedItem == "5.2.1" || munkiVersion.titleOfSelectedItem == "5.2.2" || munkiVersion.titleOfSelectedItem == "5.2.3" || munkiVersion.titleOfSelectedItem == "5.3.0" || munkiVersion.titleOfSelectedItem == "5.4.0" {
+            shellpath = Bundle.main.path(forResource: "rb_new.sh",ofType:nil)!
+        } else {
+            shellpath = Bundle.main.path(forResource: "rb.sh",ofType:nil)!
+        }
         
-        task.arguments = [shellpathstr, appName.stringValue, workingDirectory.stringValue, certName.stringValue, appCert.stringValue, iconFile.stringValue, munkiVersion.titleOfSelectedItem!, outputDirectory.stringValue, bgcolor.stringValue, cat.stringValue, feat.stringValue, hexTXT.stringValue, hexBUTT.stringValue, hexbTitle.stringValue, shadValue.stringValue, themeTpe, postscriptPath.stringValue]
+        //let shellpath = Bundle.main.path(forResource: "rb.sh",ofType:nil)
+        let shellpathstr = String(shellpath)
+        let themeTpe =  String(themeType.titleOfSelectedItem!)
+        let bpRebrand =  String(bypassRebrand.titleOfSelectedItem!)
+        let bMDM = String(buildMDM.titleOfSelectedItem!)
+        let bROSE = String(buildRosetta.titleOfSelectedItem!)
+        let bPYTH = String(buildPython.titleOfSelectedItem!)
+        let bPYSSL = String(buildPYSSL.titleOfSelectedItem!)
+        let signMUNK = String(signMunki.titleOfSelectedItem!)
+        
+        task.arguments = [shellpathstr, appName.stringValue, workingDirectory.stringValue, certName.stringValue, appCert.stringValue, iconFile.stringValue, munkiVersion.titleOfSelectedItem!, outputDirectory.stringValue, bgcolor.stringValue, cat.stringValue, feat.stringValue, hexTXT.stringValue, hexBUTT.stringValue, hexbTitle.stringValue, shadValue.stringValue, themeTpe, postscriptPath.stringValue, bpRebrand, bMDM, bROSE, bPYTH, bPYSSL, signMUNK]
         
         sender.isEnabled = false
        
@@ -383,7 +415,7 @@ class Variables: NSObject {
                     let text = self.theResTxt.string  //the text we'll write
                     
                     // we'll write the file in the user's documents directory
-                    if let dir = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first {
+                    if let dir = FileManager.default.urls(for: .sharedPublicDirectory, in: .userDomainMask).first {
 
                         let fileURL = dir.appendingPathComponent(file)
 
