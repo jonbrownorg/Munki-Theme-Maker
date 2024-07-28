@@ -42,4 +42,6 @@ The log file for the App is located in your Downloads folder. Its recommended th
 3. If you need to start over please quit the app and start again. Delete the source and target folders and remake them. 
 
 ## To-do
-* Better handling of user passwords and passing that through to the various scripts natively. 
+* Better handling of user passwords and passing that through to the various scripts natively.
+
+<a href="https://www.buymeacoffee.com/jonbrown" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
